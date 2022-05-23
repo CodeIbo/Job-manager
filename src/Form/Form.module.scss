@@ -1,0 +1,43 @@
+@import '../index.scss';
+
+select {
+  width: max-content;
+  text-align: center;
+}
+
+
+@include ColorsStatus();
+
+
+
+form {
+  top: 20vh;
+  width: 50%;
+  background-color: $extraDarkerColor;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 15px;
+  height: max-content;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  gap:15px;
+  box-shadow: 0 2px 8px rgba(100, 100, 100, 0.979);
+  select {
+    width: 100px;
+  }
+  
+}
+
+.backgroundLogic {
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+}

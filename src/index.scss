@@ -1,0 +1,29 @@
+$backgroundColor: #d6cceb;
+$itemBackgroundColor: #ccd4eb;
+$extraDarkerColor: #5452ab;
+
+body {
+  background-color: $backgroundColor;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin ColorsStatus {
+  .sended {
+    background-color: rgb(211, 211, 211);
+  }
+  .opened {
+    background-color: rgb(236, 236, 39);
+  }
+
+  .offer {
+    background-color: rgb(18, 122, 18);
+  }
+  .canceled {
+    background-color: rgb(190, 48, 48);
+  }
+}
+
+.hidden {
+  overflow: hidden;
+}
