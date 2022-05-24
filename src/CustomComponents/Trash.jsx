@@ -1,5 +1,7 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import { styled } from '@mui/material/styles';
+import Context from '../Context/DataContext';
+import React,{useContext} from 'react';
 
 const CustomDeleteIcon = styled(DeleteIcon)({
     cursor: 'pointer',
@@ -8,13 +10,12 @@ const CustomDeleteIcon = styled(DeleteIcon)({
 })
 
 const Trash = (props) => {
+    const localContext = useContext(Context)
     const idHandler = () => {
-        props.removeItem(props.data.id)
+        localContext.setLocalData(localContext.localdata.filter(object => object.id !== props.data.id))
     }
-
     return (
         <CustomDeleteIcon onClick={idHandler} />
     )
 }
-
 export default Trash

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
@@ -6,24 +6,24 @@ import { Typography, InputAdornment } from "@mui/material";
 import TextField from '@mui/material/TextField';
 import clasess from './NavBar.module.scss'
 import SearchIcon from '@mui/icons-material/Search';
+import Context from "../Context/DataContext";
 
 
 
 
-const SearchBar = (props) => {
+const SearchBar = () => {
 
     const [radioCheck, setRadioCheck] = useState('companySite')
     const [inputCheck, setInputCheck] = useState('')
 
-
-    const filterInformation = {
-        radio: radioCheck,
-        input: inputCheck
-    }
+    const searchContext = useContext(Context)
 
     useEffect(() => {
         const identifier = setTimeout(() => {
-            props.filter(filterInformation)
+            searchContext.setClonedData(searchContext.localdata.filter(oneObject => {
+                return radioCheck === 'skills' ? oneObject.skills.some((value) => { return value.toLowerCase().includes(inputCheck.toLowerCase()) }) : oneObject[radioCheck].toLowerCase().includes(inputCheck.toLowerCase())
+                
+            }))
         }, 500)
 
         return () => {

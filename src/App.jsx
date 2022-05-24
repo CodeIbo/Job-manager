@@ -3,7 +3,7 @@ import Form from './Form/Form';
 import Data from './Data/Data';
 import NavBar from './NavBar/NavBar';
 import './index.scss';
-
+import Context from './Context/DataContext';
 function App() {
 
 
@@ -11,17 +11,13 @@ function App() {
   const [localdata, setlocalData] = useState(JSON.parse(localStorage.getItem("data")))
   const [clonedData, setClonedData] = useState(structuredClone(localdata))
   const [colorChanger, setColorChanger] = useState('')
+
   if (localdata === null) {
     localStorage.setItem('data', JSON.stringify([]))
   }
   else {
     localStorage.setItem('data', JSON.stringify(localdata))
 
-  }
-
-
-  const dataHandler = (data) => {
-    setlocalData((prevData) => [...prevData, data])
   }
 
   useEffect(() => {
@@ -34,52 +30,34 @@ function App() {
     };
   }, [showForm, localdata]);
 
-  const deleteHandler = (id) => {
-    return setlocalData(localdata.filter(object => object.id !== id))
-  }
-
-  const FilterHandler = ((data) => {
-    setClonedData(localdata.filter(oneObject => {
-      return data.radio === 'skills' ? oneObject.skills.some((value) => { return value.toLowerCase().includes(data.input.toLowerCase()) }) : oneObject[data.radio].toLowerCase().includes(data.input.toLowerCase())
-    }))
-  })
-
-  /*   const FilterHandler = ((data) => {
-      setClonedData(localdata.filter((object) => {
-        for (const [key, value] of Object.entries(object)) {
-          if (data.radio === key) {
-            if (value.includes(data.input)) {
-              return object
-            }
-          }
-        }
-      }))
-    })
-    alternative way to filter data */
-
-  const colorManagment = (objectColor) => {
-    setColorChanger(objectColor)
-  }
-
   useEffect(() => {
     setlocalData((prevState) => {
-      return prevState.map(x => {
-        if (x.id === colorChanger.id) {
-          return { ...x, status: colorChanger.status }
+      return prevState.map(singleObject => {
+        if (singleObject.id === colorChanger.id) {
+          return { ...singleObject, status: colorChanger.status }
         }
-        return x
+        return singleObject
       })
     })
 
   }, [colorChanger])
 
   return (
-    <React.Fragment>
-      <NavBar buttonManager={setShowForm} filter={FilterHandler} />
-      {showForm && <Form data={dataHandler} back={setShowForm} />}
-      <Data jobs={clonedData} idData={deleteHandler} colorData={colorManagment} />
+    <Context.Provider value={
+      {
+        localdata: localdata,
+        clonedData: clonedData,
+        setLocalData: setlocalData,
+        setShowForm: setShowForm,
+        setClonedData: setClonedData,
+        setColor : setColorChanger
+      }
+    }>
+      <NavBar />
+      {showForm && <Form />}
+      <Data  />
 
-    </React.Fragment>
+    </Context.Provider>
   );
 }
 

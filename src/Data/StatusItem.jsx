@@ -1,22 +1,24 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect,useContext } from "react";
 import clasess from './Data.module.scss'
 import DropDownMenu from "../CustomComponents/DropDownMenu";
+import Context from "../Context/DataContext";
 
 const StatusItem = (props) => {
     const [dropdown, setDropdown] = useState(false)
     const [changeStatusJobOnUI, setchangeStatusJobOnUI] = useState('')
+    const colorContext = useContext(Context)
+
     const clickHandler = () => {
         setDropdown(true)
     }
     useEffect(() => {
-        console.log(changeStatusJobOnUI)
         const identifier = setTimeout(() => {
             if (changeStatusJobOnUI.length > 0) {
                 const colorHandler = {
                     id: props.dataSI.id,
                     status: changeStatusJobOnUI
                 }
-                props.colorUp(colorHandler)
+                colorContext.setColor(colorHandler)
                 setDropdown(false)
             }
 

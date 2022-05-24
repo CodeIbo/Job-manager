@@ -1,20 +1,20 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import SearchBar from './SearchBar'
 import clasess from './NavBar.module.scss'
+import Context from '../Context/DataContext'
 
 const NavBar = (props) =>{
-
+    const localDataContext = useContext(Context)
+    
     const setFormHandler = () =>{
-        props.buttonManager(true)
+        localDataContext.setShowForm(true)
     }
-    const filterHandler = (filterObject) =>{
-        props.filter(filterObject)
-    }
+  
 
     return(
         <nav className={clasess['navBar']}>
             <button onClick={setFormHandler}>Add New</button>
-            <SearchBar filter={filterHandler}/>
+            <SearchBar />
         </nav>
     )
 }

@@ -1,22 +1,18 @@
-import React from "react"
+import React,{useContext} from "react"
 import clasess from './Data.module.scss'
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import Trash from '../CustomComponents/Trash'
 import StatusItem from './StatusItem'
-const Data = (props) => {
+import Context from "../Context/DataContext";
 
-    const dataHandler = (id) => {
-        props.idData(id)
-    }
-    const colorHandler = (colorObject) => {
-        props.colorData(colorObject)
-    }
+const Data = () => {
 
+    const contextStorage = useContext(Context)
 
     return (
         <main>
-            {props.jobs.map(oneJob => (
+            {contextStorage.clonedData.map(oneJob => (
                 <Stack direction="row" spacing={1} sx={{
                     maxWidth: 'md',
                     height: 'fit-content'
@@ -25,7 +21,7 @@ const Data = (props) => {
                     key={oneJob.id}
                     divider={<Divider orientation="vertical" flexItem />}>
 
-                    <StatusItem dataSI={oneJob} colorUp={colorHandler} />
+                    <StatusItem dataSI={oneJob} />
                     <p className={clasess['companyName']}>
                         {oneJob.companySite}
                     </p>
@@ -38,7 +34,7 @@ const Data = (props) => {
                     </div>
                     <a className={clasess['link']} href={oneJob.link} target="_blank" rel="noreferrer">link</a>
                     {oneJob.customDescription.trim().length > 0 && <p className={clasess['siteName']}>{oneJob.customDescription}</p>}
-                    <Trash data={oneJob} removeItem={dataHandler} />
+                    <Trash data={oneJob}  />
                 </Stack>
             ))}
         </main>

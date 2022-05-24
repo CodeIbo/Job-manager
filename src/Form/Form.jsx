@@ -1,16 +1,17 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect,useContext } from "react";
 import Background from "./Background";
 import TextField from '@mui/material/TextField';
 import DropDownMenu from "../CustomComponents/DropDownMenu";
 import CustomButtonSubmit from "../CustomComponents/CustomSubmitButton";
+import Context from "../Context/DataContext";
 
-const Form = (props) => {
+const Form = () => {
     const [name, setName] = useState('')
     const [skills, setSkills] = useState('')
     const [link, setLink] = useState('')
     const [customDescription, setcustomDescription] = useState('')
     const [jobStatut, setJobStatus] = useState('')
-
+    const localDataContext = useContext(Context)
     const NameHandler = (e) => {
         setName(e.target.value)
     }
@@ -24,7 +25,7 @@ const Form = (props) => {
         setLink(e.target.value.trim())
 
     }
-    
+
     const customDescriptionHandler = (e) => {
         setcustomDescription(e.target.value)
     }
@@ -39,19 +40,21 @@ const Form = (props) => {
             customDescription: customDescription,
             status: jobStatut
         }
-        props.data(job)
+        localDataContext.setLocalData((prevData) => [...prevData, job])
+
+        
         setName('')
         setSkills('')
         setLink('')
         setcustomDescription('')
-        props.back(false)
+        localDataContext.setShowForm(false)
     }
     const BackgroundCloser = (ref) => {
         useEffect(() => {
             const handleClickOutside = (event) => {
 
                 if (ref.current && !ref.current.contains(event.target)) {
-                    props.back(false)
+                    localDataContext.setShowForm(false)
                 }
             }
             document.addEventListener("mousedown", handleClickOutside);
@@ -71,18 +74,17 @@ const Form = (props) => {
         },
     }
 
-
     return (
-        <Background >
-            <form onSubmit={submitForm} ref={wrapperRef}>
-                <TextField variant="outlined" label='Company name' value={name} onChange={NameHandler} InputLabelProps={colorChanger} required inputProps={{ maxLength: 20 }}></TextField>
-                <TextField variant="outlined" label='Skills' InputLabelProps={colorChanger} value={skills} onChange={skillHandler} required inputProps={{ maxLength: 30 }}></TextField>
-                <TextField variant="outlined" label='link' InputLabelProps={colorChanger} value={link} onChange={LinkHandler} required inputProps={{ maxLength: 100 }}></TextField>
-                <TextField variant="outlined" label='custom comment' InputLabelProps={colorChanger} value={customDescription} onChange={customDescriptionHandler} inputProps={{ maxLength: 50 }}></TextField>
-                <DropDownMenu onChange={setJobStatus} />
-                <CustomButtonSubmit type='submit' variant="contained">Send</CustomButtonSubmit>
-            </form>
-        </Background>
+            <Background >
+                <form onSubmit={submitForm} ref={wrapperRef}>
+                    <TextField variant="outlined" label='Company name' value={name} onChange={NameHandler} InputLabelProps={colorChanger} required inputProps={{ maxLength: 20 }}></TextField>
+                    <TextField variant="outlined" label='Skills' InputLabelProps={colorChanger} value={skills} onChange={skillHandler} required inputProps={{ maxLength: 30 }}></TextField>
+                    <TextField variant="outlined" label='link' InputLabelProps={colorChanger} value={link} onChange={LinkHandler} required inputProps={{ maxLength: 100 }}></TextField>
+                    <TextField variant="outlined" label='custom comment' InputLabelProps={colorChanger} value={customDescription} onChange={customDescriptionHandler} inputProps={{ maxLength: 50 }}></TextField>
+                    <DropDownMenu onChange={setJobStatus} />
+                    <CustomButtonSubmit type='submit' variant="contained">Send</CustomButtonSubmit>
+                </form>
+            </Background>
 
     )
 }
