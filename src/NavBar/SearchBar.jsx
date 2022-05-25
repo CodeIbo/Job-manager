@@ -43,7 +43,7 @@ const SearchBar = () => {
 
     const radioObject = {
         '& .MuiSvgIcon-root': {
-            fontSize: '10px',
+            fontSize: '20px',
         },
     }
 
@@ -57,7 +57,7 @@ const SearchBar = () => {
                 fullWidth
                 InputProps={{
                     style: {
-                        fontSize: 10,
+                        fontSize: 25,
                         color: "white",
                         maxWidth: '350px',
                         alignSelf: 'center'
@@ -70,10 +70,10 @@ const SearchBar = () => {
                 }}
             />
             <RadioGroup onChange={changeRadioHandler} row value={radioCheck}>
-                <FormControlLabel control={<Radio sx={radioObject} />} value='companySite' label={<Typography fontSize={'10px'}>Company Name</Typography>} />
-                <FormControlLabel control={<Radio sx={radioObject} />} value='skills' label={<Typography fontSize={'10px'}>skills</Typography>} />
-                <FormControlLabel control={<Radio sx={radioObject} />} value='link' label={<Typography fontSize={'10px'}>link</Typography>} />
-                <FormControlLabel control={<Radio sx={radioObject} />} value='customDescription' label={<Typography fontSize={'10px'}>Custom comment</Typography>} />
+                <FormControlLabel control={<Radio sx={radioObject} />} value='companySite' label={<Typography fontSize={'15px'}>Company Name</Typography>} />
+                <FormControlLabel control={<Radio sx={radioObject} />} value='skills' label={<Typography fontSize={'15px'}>skills</Typography>} />
+                <FormControlLabel control={<Radio sx={radioObject} />} value='link' label={<Typography fontSize={'15px'}>link</Typography>} />
+                <FormControlLabel control={<Radio sx={radioObject} />} value='customDescription' label={<Typography fontSize={'15px'}>Custom comment</Typography>} />
             </RadioGroup>
         </div>
     )
