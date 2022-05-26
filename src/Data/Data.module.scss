@@ -47,10 +47,9 @@ main {
 
 .containerGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 5px;
   justify-items: center;
-  width: 150px;
 }
 
 .containerFlex {
@@ -68,11 +67,11 @@ main {
 
 .siteName {
   font-size: 1em;
+  text-align: center;
 }
 
 .companyName {
   font-size: 1.2em;
   text-align: center;
-  width: 15%;
   max-width: 300px;
 }

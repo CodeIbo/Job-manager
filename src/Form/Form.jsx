@@ -60,41 +60,57 @@ const Form = () => {
   return (
     <Background>
       <form onSubmit={submitForm}>
-        <CloserPopup/>
+        <CloserPopup />
         <TextField
+          autoComplete="off"
           variant="outlined"
           label="Company name"
           value={name}
           onChange={NameHandler}
           InputLabelProps={textColorInput}
           required
-          inputProps={{ maxLength: 20 }}
+          inputProps={{ maxLength: 25,
+          style:{
+            color:'whitesmoke'
+          } }}
         ></TextField>
         <TextField
+          autoComplete="off"
           variant="outlined"
           label="Skills"
           InputLabelProps={textColorInput}
           value={skills}
           onChange={skillHandler}
           required
-          inputProps={{ maxLength: 30 }}
+          inputProps={{ maxLength: 100,
+            style:{
+              color:'whitesmoke'
+            } }}
         ></TextField>
         <TextField
+          autoComplete="off"
           variant="outlined"
           label="link"
           InputLabelProps={textColorInput}
           value={link}
           onChange={LinkHandler}
           required
-          inputProps={{ maxLength: 100 }}
+          inputProps={{ maxLength: 150,
+            style:{
+              color:'whitesmoke'
+            } }}
         ></TextField>
         <TextField
+          autoComplete="off"
           variant="outlined"
           label="custom comment"
           InputLabelProps={textColorInput}
           value={customDescription}
           onChange={customDescriptionHandler}
-          inputProps={{ maxLength: 50 }}
+          inputProps={{ maxLength: 50,
+            style:{
+              color:'whitesmoke'
+            } }}
         ></TextField>
         <DropDownMenu onChange={setJobStatus} />
         <CustomButtonSubmit type="submit" variant="contained">
