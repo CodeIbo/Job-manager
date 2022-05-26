@@ -8,9 +8,9 @@ body {
   padding: 0;
 }
 
-@mixin ColorsStatus {
+@mixin ColorsStatus() {
   .sended {
-    background-color: rgb(211, 211, 211);
+    background-color: rgb(245, 245, 245);
   }
   .opened {
     background-color: rgb(236, 236, 39);
@@ -24,6 +24,14 @@ body {
   }
 }
 
+@include ColorsStatus();
+
 .hidden {
   overflow: hidden;
+}
+
+@mixin customFlex($justifyContent: "", $alignItems: "") {
+  display: flex;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
 }
