@@ -5,8 +5,9 @@ import NavBar from "./NavBar/NavBar";
 import "./index.module.scss";
 import Context from "./Context/DataContext";
 import HelpButton from "./CustomComponents/Help";
+import Helper from "./Helper/Helper";
 function App() {
-  const [showForm, setShowForm] = useState("");
+  const [showItem, setshowItem] = useState("");
   const [localdata, setlocalData] = useState(
     JSON.parse(localStorage.getItem("data"))
   );
@@ -24,14 +25,14 @@ function App() {
   }, [localdata]);
 
   useEffect(() => {
-    if (showForm.length > 0) {
+    if (showItem.length > 0) {
       document.body.classList.add("hidden");
     }
 
     return () => {
       document.body.classList.remove("hidden");
     };
-  }, [showForm]);
+  }, [showItem]);
 
   useEffect(() => {
     setlocalData((prevState) => {
@@ -44,21 +45,26 @@ function App() {
     });
   }, [colorChanger]);
 
+  const helpHandler =() =>{
+    setshowItem('helper')
+  }
+
   return (
     <Context.Provider
       value={{
         localdata: localdata,
         clonedData: clonedData,
         setLocalData: setlocalData,
-        setShowForm: setShowForm,
+        setShowItem: setshowItem,
         setClonedData: setClonedData,
         setColor: setColorChanger,
       }}
     >
       <NavBar />
-      {showForm === "form" && <Form />}
+      {showItem === "form" && <Form />}
+      {showItem === 'helper' && <Helper/>}
       <Data />
-      <HelpButton />
+      <HelpButton onClick={helpHandler} />
     </Context.Provider>
   );
 }

@@ -1,0 +1,27 @@
+@import "../index.module.scss";
+
+.helperPopup {
+  @include popup;
+  color: #FEF6F2;
+  gap:8px;
+  justify-content: flex-start;
+  height: max-content;
+  &__ulHelper {
+      margin: 0;
+    &--lineHeigh {
+        line-height:25px;
+      }
+    li {
+      padding: 5px;
+    }
+    span{
+        text-decoration: underline
+    }
+   
+  }
+}
+
+mark {
+  @include ColorsStatus;
+  padding: 2px;
+}

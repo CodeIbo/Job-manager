@@ -1,10 +1,11 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import Background from "../CustomComponents/Background";
 import TextField from "@mui/material/TextField";
 import DropDownMenu from "../CustomComponents/DropDownMenu";
 import CustomButtonSubmit from "../CustomComponents/CustomSubmitButton";
 import Context from "../Context/DataContext";
 import "./Form.module.scss";
+import CloserPopup from "../CustomComponents/CloserPopup";
 
 const Form = () => {
   const [name, setName] = useState("");
@@ -46,7 +47,7 @@ const Form = () => {
     setSkills("");
     setLink("");
     setcustomDescription("");
-    localDataContext.setShowForm("");
+    localDataContext.setShowItem("");
   };
 
   const textColorInput = {
@@ -59,6 +60,7 @@ const Form = () => {
   return (
     <Background>
       <form onSubmit={submitForm}>
+        <CloserPopup/>
         <TextField
           variant="outlined"
           label="Company name"

@@ -7,7 +7,7 @@ const NavBar = () => {
   const localDataContext = useContext(Context);
 
   const setFormHandler = () => {
-    localDataContext.setShowForm("form");
+    localDataContext.setShowItem("form");
   };
 
   return (

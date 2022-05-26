@@ -6,17 +6,8 @@ select {
 }
 
 form {
-  top: 20vh;
-  width: 100%;
-  background-color: $extraDarkerColor;
-  border-radius: 5px;
-  margin: 0 auto;
-  padding: 15px;
-  height: 50vh;
-  @include customFlex(center, center);
-  flex-direction: column;
-  gap: 15px;
-  box-shadow: 0 2px 8px rgba(100, 100, 100, 0.979);
+ 
+  @include popup;
   select {
     width: 125px;
   }

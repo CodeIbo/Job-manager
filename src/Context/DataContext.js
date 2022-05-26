@@ -4,7 +4,7 @@ const Context = React.createContext({
   localdata: [],
   clonedData: [],
   setLocalData: () => {},
-  setShowForm: () => {},
+  setShowItem: () => {},
   setClonedData: () => {},
   setColor: () => {},
 });

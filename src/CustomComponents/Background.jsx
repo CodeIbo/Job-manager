@@ -1,4 +1,4 @@
-import React, { useRef, useContext, useEffect, forwardRef } from "react";
+import React, { useRef, useContext, useEffect } from "react";
 import clasess from "./Background.module.scss";
 import Context from "../Context/DataContext";
 
@@ -9,7 +9,7 @@ const Background = (props) => {
     useEffect(() => {
       const handleClickOutside = (event) => {
         if (ref.current && !ref.current.contains(event.target)) {
-          localDataContext.setShowForm(false);
+          localDataContext.setShowItem('');
         }
       };
       document.addEventListener("mousedown", handleClickOutside);

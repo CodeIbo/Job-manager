@@ -2,6 +2,11 @@ $backgroundColor: #d6cceb;
 $itemBackgroundColor: #ccd4eb;
 $extraDarkerColor: #5452ab;
 
+$whiteStatus: #f5f5f5;
+$yellowStatus: #ecec27;
+$greenStatus: #127a12;
+$redStatus: #be3030;
+
 body {
   background-color: $backgroundColor;
   margin: 0;
@@ -10,17 +15,21 @@ body {
 
 @mixin ColorsStatus() {
   .sended {
-    background-color: rgb(245, 245, 245);
+    background-color: $whiteStatus;
+    color: black;
   }
   .opened {
-    background-color: rgb(236, 236, 39);
+    background-color: $yellowStatus;
+    color: black;
   }
 
   .offer {
-    background-color: rgb(18, 122, 18);
+    background-color: $greenStatus;
+    color: #f5f5f5;
   }
   .canceled {
-    background-color: rgb(190, 48, 48);
+    background-color: $redStatus;
+    color: #f5f5f5;
   }
 }
 
@@ -34,4 +43,18 @@ body {
   display: flex;
   justify-content: $justifyContent;
   align-items: $alignItems;
+}
+
+@mixin popup {
+  position: relative;
+  width: 100%;
+  background-color: $extraDarkerColor;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 20px;
+  height: 50vh;
+  @include customFlex(center, center);
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 2px 8px rgba(100, 100, 100, 0.979);
 }

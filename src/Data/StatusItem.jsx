@@ -22,7 +22,7 @@ const StatusItem = (props) => {
         setDropdown(false);
       }
       setDropdown(false);
-    }, 1500);
+    }, 2000);
 
     return () => {
       clearTimeout(identifier);
