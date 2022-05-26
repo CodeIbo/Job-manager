@@ -1,4 +1,4 @@
-@import "../index.scss";
+@import "../index.module.scss";
 
 main {
   align-items: center;
@@ -7,7 +7,7 @@ main {
   gap: 10px;
   list-style: none;
   padding: 0;
-  margin-top:20vh;
+  margin-top: 20vh;
 }
 .component {
   background-color: $itemBackgroundColor;
@@ -20,50 +20,41 @@ main {
 }
 
 @mixin logic {
-    min-width: 20px;
-    height: 40px;
-    margin: 0;
+  @include ColorsStatus();
+  .sended,
+  .canceled,
+  .offer,
+  .opened {
     cursor: pointer;
+    height: 40px;
+    border-radius: 5px;
+    min-width: 20px;
+    margin: 0;
+  }
 }
 
-.sended {
-  background-color: rgb(231, 231, 231);
-  @include logic;
-}
-.opened {
-  background-color: rgb(236, 236, 39);
-  @include logic;
-}
+@include logic();
 
-.offer {
-  background-color: rgb(18, 122, 18);
-  @include logic;
-}
-.canceled {
-  background-color: rgb(190, 48, 48);
-  @include logic;
-}
-
-.skillsStyle{
+.skillsStyle {
   border: 1px solid white;
   border-radius: 3px;
   background-color: $extraDarkerColor;
-  color:white;
-  font-size:0.9rem;
+  color: white;
+  font-size: 0.9rem;
   padding: 3px;
   width: fit-content;
 }
 
-.containerGrid{
-  display:grid;
+.containerGrid {
+  display: grid;
   grid-template-columns: 1fr 1fr;
-  gap:5px;
+  gap: 5px;
   justify-items: center;
   width: 150px;
 }
 
-.containerFlex{
-  display:flex;
+.containerFlex {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -75,15 +66,13 @@ main {
   font-style: italic;
 }
 
-.siteName{
-  font-size:1em;
+.siteName {
+  font-size: 1em;
 }
 
-.companyName{
+.companyName {
   font-size: 1.2em;
   text-align: center;
   width: 15%;
   max-width: 300px;
-
-
 }
