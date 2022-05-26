@@ -27,7 +27,7 @@ const StatusItem = (props) => {
     return () => {
       clearTimeout(identifier);
     };
-  }, [changeStatusJobOnUI]);
+  }, [changeStatusJobOnUI,dropdown]);
 
   return (
     <Fragment>
