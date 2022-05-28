@@ -1,6 +1,6 @@
 ## Hello! 🖐
 
-There I will be giving you feedback about updating process my aplication.
+Here I will be giving you feedback about updating process my aplication.
 
 Version 1.0 was relased! 
 
