@@ -35,9 +35,6 @@ body {
 
 @include ColorsStatus();
 
-.hidden {
-  overflow: hidden;
-}
 
 @mixin customFlex($justifyContent: "", $alignItems: "") {
   display: flex;

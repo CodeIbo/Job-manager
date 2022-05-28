@@ -26,11 +26,11 @@ function App() {
 
   useEffect(() => {
     if (showItem.length > 0) {
-      document.body.classList.add("hidden");
+      document.body.style.overflow ='hidden';
     }
 
     return () => {
-      document.body.classList.remove("hidden");
+      document.body.style.overflow = 'auto';
     };
   }, [showItem]);
 
@@ -45,9 +45,9 @@ function App() {
     });
   }, [colorChanger]);
 
-  const helpHandler =() =>{
-    setshowItem('helper')
-  }
+  const helpHandler = () => {
+    setshowItem("helper");
+  };
 
   return (
     <Context.Provider
@@ -62,7 +62,7 @@ function App() {
     >
       <NavBar />
       {showItem === "form" && <Form />}
-      {showItem === 'helper' && <Helper/>}
+      {showItem === "helper" && <Helper />}
       <Data />
       <HelpButton onClick={helpHandler} />
     </Context.Provider>

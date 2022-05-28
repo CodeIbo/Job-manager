@@ -37,7 +37,7 @@ const Data = () => {
               ]
             }
           >
-            {oneJob.skills.map((oneSkill, id) => (
+            {oneJob.skills.sort((a, b) => a.length - b.length).map((oneSkill, id) => (
               <p className={clasess["skillsStyle"]} key={id}>
                 {oneSkill.toUpperCase()}
               </p>
@@ -52,7 +52,7 @@ const Data = () => {
             link
           </a>
           {oneJob.customDescription.trim().length > 0 && (
-            <p className={clasess["siteName"]}>{oneJob.customDescription}</p>
+            <p className={clasess["comment"]}>{oneJob.customDescription}</p>
           )}
           <Trash
             onClick={() => {

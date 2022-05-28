@@ -47,7 +47,9 @@ main {
 
 .containerGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 100px 100px 100px;
+  align-items: center;
+  word-break: break-word;
   gap: 5px;
   justify-items: center;
 }
@@ -70,8 +72,9 @@ main {
   text-align: center;
 }
 
-.companyName {
-  font-size: 1.2em;
+.comment {
+  font-size: 1em;
   text-align: center;
-  max-width: 300px;
+  overflow-wrap: break-word;
+  width: 100px;
 }
