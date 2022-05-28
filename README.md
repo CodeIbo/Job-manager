@@ -1,7 +1,6 @@
 ## Hello! 🖐
 
-The application allows you to effectively manage your job applications. It has options to edit and dynamically search posts. Additionally, it saves changes using local storage
-
+There I will be giving you feedback about updating process my aplication.
 
 Version 1.0 was relased! 
 
