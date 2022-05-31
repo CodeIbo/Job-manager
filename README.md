@@ -6,9 +6,8 @@ Version 1.0 was relased!
 
 Road map aplication => 
 
-1. Offer counter
-2. Adding/editing and deleting comments 
-3. Redesign background :)
-4. Mobile design 
+1. Adding/editing and deleting comments 
+2. Redesign background :)
+3. Mobile design 
 
 If you noticed bugs or have advice please write to me!
