@@ -1,7 +1,8 @@
 @import "../index.module.scss";
 
 .backgroundLogic {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.555);
+  backdrop-filter: blur(3.5px);
   height: 100vh;
   left: 0;
   position: fixed;

@@ -9,14 +9,23 @@ main {
   padding: 0;
   margin-top: 20vh;
 }
-.component {
+
+@mixin BorderBoxStyle {
   background-color: $itemBackgroundColor;
   border: solid 2px $extraDarkerColor;
   border-radius: 10px;
+}
+
+.component {
+  @include BorderBoxStyle();
   width: 60%;
   max-width: 1000px;
   overflow: hidden;
   padding: 10px;
+}
+
+@mixin mainStyleContener {
+  
 }
 
 @mixin logic {

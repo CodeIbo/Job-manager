@@ -5,12 +5,15 @@ import Divider from "@mui/material/Divider";
 import Trash from "../CustomComponents/Trash";
 import StatusItem from "./StatusItem";
 import Context from "../Context/DataContext";
+import Counter from "../Counter/Counter";
 
 const Data = () => {
   const contextStorage = useContext(Context);
+  
 
   return (
     <main>
+      <Counter/>
       {contextStorage.clonedData.map((oneJob) => (
         <Stack
           direction="row"
@@ -69,4 +72,4 @@ const Data = () => {
   );
 };
 
-export default Data;
+export default React.memo(Data);
