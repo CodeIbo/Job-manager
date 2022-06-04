@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import Background from "../CustomComponents/Background";
+import Background from "../CustomComponents/Background/Background";
 import TextField from "@mui/material/TextField";
 import DropDownMenu from "../CustomComponents/DropDownMenu";
 import CustomButtonSubmit from "../CustomComponents/CustomSubmitButton";
@@ -75,7 +75,7 @@ const Form = () => {
     <Background>
       {!validateSkills && (
         <AlertFrom severity="warning">
-          Remember! You cant have empty space after and before comma.{" "}
+          Remember! You cant have empty space after and before comma.
         </AlertFrom>
       )}
       <form onSubmit={submitForm}>

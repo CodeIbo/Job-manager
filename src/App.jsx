@@ -6,6 +6,8 @@ import "./index.module.scss";
 import Context from "./Context/DataContext";
 import HelpButton from "./CustomComponents/Help";
 import Helper from "./Helper/Helper";
+import PaginationFunction from "./Pagination/Pagination";
+import { PaginationContextProvider } from "./Context/PaginationContext";
 function App() {
   const [showItem, setshowItem] = useState("");
   const [localdata, setlocalData] = useState(
@@ -13,6 +15,12 @@ function App() {
   );
   const [clonedData, setClonedData] = useState(structuredClone(localdata));
   const [colorChanger, setColorChanger] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage] = useState(3);
+
+  const indexOfLastPost = currentPage * postPerPage;
+  const indexOfFirstPost = indexOfLastPost - postPerPage;
+  const currentPost = clonedData.slice(indexOfFirstPost, indexOfLastPost);
 
   if (localdata === null) {
     localStorage.setItem("data", JSON.stringify([]));
@@ -53,18 +61,29 @@ function App() {
     <Context.Provider
       value={{
         localdata: localdata,
-        clonedData: clonedData,
+        clonedDataCount: clonedData,
+        clonedData: currentPost,
         setLocalData: setlocalData,
         setShowItem: setshowItem,
         setClonedData: setClonedData,
         setColor: setColorChanger,
       }}
     >
-      <NavBar />
-      {showItem === "form" && <Form />}
-      {showItem === "helper" && <Helper />}
-      <Data />
-      <HelpButton onClick={helpHandler} />
+      <PaginationContextProvider>
+        <NavBar />
+        {showItem === "form" && <Form />}
+        {showItem === "helper" && <Helper />}
+        <Data />
+
+        <PaginationFunction
+          totalPosts={clonedData.length}
+          postsPerPage={postPerPage}
+          paginate={setCurrentPage}
+          startPage={currentPage}
+        />
+
+        <HelpButton onClick={helpHandler} />
+      </PaginationContextProvider>
     </Context.Provider>
   );
 }

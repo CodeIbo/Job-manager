@@ -1,6 +1,6 @@
 import React, { useRef, useContext, useEffect } from "react";
 import clasess from "./Background.module.scss";
-import Context from "../Context/DataContext";
+import Context from "../../Context/DataContext";
 
 const Background = (props) => {
   const localDataContext = useContext(Context);

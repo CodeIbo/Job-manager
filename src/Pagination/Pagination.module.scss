@@ -1,0 +1,19 @@
+@import '../index.module.scss';
+
+.App {
+    &__navigation{
+        margin: 0 auto;
+        display:flex;
+        width: 100%;
+        justify-content: center;
+
+        &__paginationNumbers{
+            padding: 0;
+            list-style: none;   
+            &__numberSelector{
+                width: 100%;
+                background-color: $extraDarkerColor ;
+            }
+        }
+    }
+}

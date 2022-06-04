@@ -8,7 +8,7 @@ const Counter = () => {
 
   return (
     <div className={clasess["counter"]}>
-      <span>Actual number offers: {clonedContext.clonedData.length}</span>
+      <span>Actual number offers: {clonedContext.clonedDataCount.length}</span>
      
     </div>
   );

@@ -6,15 +6,18 @@ import Trash from "../CustomComponents/Trash";
 import StatusItem from "./StatusItem";
 import Context from "../Context/DataContext";
 import Counter from "../Counter/Counter";
+import PaginationContext from "../Context/PaginationContext";
 
 const Data = () => {
   const contextStorage = useContext(Context);
-  
+   const ctxPagination = useContext(PaginationContext)
+
+   console.log(ctxPagination.currentPosts)
 
   return (
     <main>
       <Counter/>
-      {contextStorage.clonedData.map((oneJob) => (
+      {ctxPagination.currentPosts.map((oneJob) => (
         <Stack
           direction="row"
           spacing={1}
