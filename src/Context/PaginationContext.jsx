@@ -21,7 +21,7 @@ export const PaginationContextProvider = (props) => {
     indexOfLastPost
   );
   const pageNumber = Math.ceil(ctx.clonedDataCount.length / postPerPage);
-
+    
   return (
     <PaginationContext.Provider
       value={{

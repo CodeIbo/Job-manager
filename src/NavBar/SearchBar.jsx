@@ -7,12 +7,14 @@ import TextField from "@mui/material/TextField";
 import clasess from "./NavBar.module.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import Context from "../Context/DataContext";
+import PaginationContext from "../Context/PaginationContext";
 
 const SearchBar = () => {
   const [radioCheck, setRadioCheck] = useState("companySite");
   const [inputCheck, setInputCheck] = useState("");
 
   const searchContext = useContext(Context);
+  const Paginationctx = useContext(PaginationContext)
 
   useEffect(() => {
     const identifier = setTimeout(() => {
@@ -27,12 +29,13 @@ const SearchBar = () => {
                 .includes(inputCheck.toLowerCase());
         })
       );
+      Paginationctx.currentPage = 1
     }, 500);
 
     return () => {
       clearTimeout(identifier);
     };
-  }, [inputCheck]);
+  }, [inputCheck,Paginationctx.currentPage,radioCheck]);
 
   const InputHandler = (e) => {
     setInputCheck(e.target.value);

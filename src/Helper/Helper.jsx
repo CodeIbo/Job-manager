@@ -1,6 +1,6 @@
 import React from "react";
 import Background from "../CustomComponents/Background/Background";
-import CloserPopup from "../CustomComponents/CloserPopup";
+import CloserPopup from "../CustomComponents/Icons/CloserPopup";
 import clasess from "./Helper.module.scss";
 
 const Helper = () => {

@@ -5,7 +5,7 @@ import DropDownMenu from "../CustomComponents/DropDownMenu";
 import CustomButtonSubmit from "../CustomComponents/CustomSubmitButton";
 import Context from "../Context/DataContext";
 import "./Form.module.scss";
-import CloserPopup from "../CustomComponents/CloserPopup";
+import CloserPopup from "../CustomComponents/Icons/CloserPopup";
 import AlertFrom from "../CustomComponents/AlertForm";
 
 const Form = () => {

@@ -1,5 +1,5 @@
 import React,{useContext} from "react";
-import Context from "../Context/DataContext";
+import Context from "../../Context/DataContext";
 import { styled } from "@mui/material/styles";
 import CloseIcon from '@mui/icons-material/Close';
 

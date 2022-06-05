@@ -2,21 +2,21 @@ import React, { useContext } from "react";
 import clasess from "./Data.module.scss";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
-import Trash from "../CustomComponents/Trash";
+import Trash from "../CustomComponents/Icons/Trash";
 import StatusItem from "./StatusItem";
 import Context from "../Context/DataContext";
 import Counter from "../Counter/Counter";
 import PaginationContext from "../Context/PaginationContext";
+import PaginationFunction from "../Pagination/Pagination";
 
 const Data = () => {
   const contextStorage = useContext(Context);
    const ctxPagination = useContext(PaginationContext)
 
-   console.log(ctxPagination.currentPosts)
-
   return (
     <main>
       <Counter/>
+      <PaginationFunction/>
       {ctxPagination.currentPosts.map((oneJob) => (
         <Stack
           direction="row"
