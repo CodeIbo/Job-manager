@@ -4,8 +4,9 @@ import Data from "./Data/Data";
 import NavBar from "./NavBar/NavBar";
 import "./index.module.scss";
 import Context from "./Context/DataContext";
-import HelpButton from "./CustomComponents/Help";
+import HelpButton from "./CustomComponents/Icons/Help";
 import Helper from "./Helper/Helper";
+import { PaginationContextProvider } from "./Context/PaginationContext";
 function App() {
   const [showItem, setshowItem] = useState("");
   const [localdata, setlocalData] = useState(
@@ -53,18 +54,21 @@ function App() {
     <Context.Provider
       value={{
         localdata: localdata,
-        clonedData: clonedData,
+        clonedDataCount: clonedData,
         setLocalData: setlocalData,
         setShowItem: setshowItem,
         setClonedData: setClonedData,
         setColor: setColorChanger,
       }}
     >
-      <NavBar />
-      {showItem === "form" && <Form />}
-      {showItem === "helper" && <Helper />}
-      <Data />
-      <HelpButton onClick={helpHandler} />
+      <PaginationContextProvider>
+        <NavBar />
+        {showItem === "form" && <Form />}
+        {showItem === "helper" && <Helper />}
+        <Data />
+
+        <HelpButton onClick={helpHandler} />
+      </PaginationContextProvider>
     </Context.Provider>
   );
 }
