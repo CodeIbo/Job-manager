@@ -7,7 +7,6 @@ const PaginationFunction = () => {
   const  ctxPagination = useContext(PaginationContext) 
   return (
     <nav className={clasess["App__navigation"]}>
-
       <CustomPagination count={ctxPagination.pageNumber} variant="outlined"  onChange={(e, value)=>{ctxPagination.setCurrentPage(value)}} />
     </nav>
   );

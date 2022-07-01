@@ -18,3 +18,4 @@ const CustomPagination = styled(Pagination)({
 });
 
 export default CustomPagination;
+
