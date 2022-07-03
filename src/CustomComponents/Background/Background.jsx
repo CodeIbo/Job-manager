@@ -1,4 +1,4 @@
-import React, { useRef, useContext, useEffect } from "react";
+import  { useRef, useContext, useEffect } from "react";
 import clasess from "./Background.module.scss";
 import Context from "../../Context/DataContext";
 
@@ -17,7 +17,6 @@ const Background = (props) => {
         document.removeEventListener("mousedown", handleClickOutside);
       };
     }, [ref]);
-    //https://stackoverflow.com/questions/32553158/detect-click-outside-react-component
   };
   const wrapperRef = useRef(null);
   BackgroundCloser(wrapperRef);

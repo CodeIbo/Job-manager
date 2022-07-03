@@ -8,7 +8,7 @@ import {
   clonnedSearchData,
   PaginationLogic,
 } from "../State/Reducers/DataManager";
-import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import {  TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import EditMode from "./EditMode";
 import ViewOnlyMode from "./ViewOnlyMode";
 import FormEdit from "../CustomComponents/Forms/formEdit";
@@ -30,7 +30,6 @@ const Data = () => {
   return (
     <main>
       <Counter />
-      <PaginationFunction />
       <FormEdit>
         <CustomT>
           <TableHead>

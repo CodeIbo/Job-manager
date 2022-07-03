@@ -2,11 +2,11 @@ import React, { useState, useContext, useEffect } from "react";
 import Background from "../CustomComponents/Background/Background";
 import TextField from "@mui/material/TextField";
 import DropDownMenu from "../CustomComponents/DropDownMenu";
-import CustomButtonSubmit from "../CustomComponents/CustomSubmitButton";
+import CustomButtonSubmit from "../CustomComponents/Style/MuiCustomComponents/CustomSubmitButton";
 import Context from "../Context/DataContext";
 import "./Form.module.scss";
 import CloserPopup from "../CustomComponents/Style/Icons/CustomCloseIcon";
-import AlertFrom from "../CustomComponents/AlertForm";
+import AlertFrom from "../CustomComponents/Style/MuiCustomComponents/AlertForm";
 
 const Form = () => {
   const [name, setName] = useState("");

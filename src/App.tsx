@@ -5,6 +5,7 @@ import "./index.module.scss";
 import HelpButton from "./CustomComponents/Style/Icons/Help";
 import { useDispatch } from 'react-redux';
 import { validationLocalData } from "./State/Reducers/DataManager";
+import PaginationFunction from "./Pagination/Pagination";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -15,6 +16,7 @@ function App() {
     <>
       <NavBar />
       <Data />
+      <PaginationFunction/>
       <HelpButton/>
     </>
   );

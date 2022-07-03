@@ -4,10 +4,10 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import { Typography, InputAdornment } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import clasess from "./NavBar.module.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import Context from "../Context/DataContext";
 import PaginationContext from "../Context/PaginationContext";
+import RightSiteNavContainer from "../CustomComponents/Containers/RightSiteNavContainer";
 
 const SearchBar = () => {
   const [radioCheck, setRadioCheck] = useState("companySite");
@@ -52,7 +52,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className={clasess["righSiteNav"]}>
+    <RightSiteNavContainer>
       <TextField
         onChange={InputHandler}
         hiddenLabel
@@ -95,7 +95,7 @@ const SearchBar = () => {
           label={<Typography fontSize={"15px"}>Custom comment</Typography>}
         />
       </RadioGroup>
-    </div>
+    </RightSiteNavContainer>
   );
 };
 

@@ -74,7 +74,7 @@ export const dataManager = createSlice({
 
             return { ...state, currentPost: currentPost, pageNumber: pageNumber };
         },
-        PaginationSwitch: (state, action) => {
+        PaginationSwitch: (state, action:PayloadAction<number>) => {
             return { ...state, currentPage: action.payload };
         },
         PaginationNumber: (state, action) => {
