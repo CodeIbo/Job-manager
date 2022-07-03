@@ -1,13 +1,11 @@
-import React from "react";
-import Background from "../CustomComponents/Background/Background";
-import CloserPopup from "../CustomComponents/Style/Icons/CustomCloseIcon";
+import Background from "../Components/BackgroundPopup/Background";
 import clasess from "./Helper.module.scss";
-
+import CloserPopup from "../Components/CloserPopupX/CloserHandler";
 const Helper = () => {
   return (
     <Background>
       <div className={clasess["helperPopup"]}>
-          <CloserPopup/>
+        <CloserPopup />
         <h2>Helper</h2>
         <article>
           Welcome in my aplication JobManager. You can now complex and freely
@@ -18,21 +16,22 @@ const Helper = () => {
           <span>Form:</span>
           <li>Inside form you can add whatever you want but!</li>
           <li>
-            Skills input accept many arguments but every one <b>MUST BE</b>{" "}
+            Skills input accept many arguments but every one <b>MUST BE</b>
             separated by a comma
           </li>
           <li>Comment can be optional</li>
           <li className={clasess["helperPopup__ulHelper--lineHeigh"]}>
-            Status effects has colors:{" "}
-            <mark className={clasess["sended"]}>you sended job</mark>{" "}
-            <mark className={clasess["opened"]}>you pending to answer</mark>{" "}
-            <mark className={clasess["offer"]}>you got offer</mark>{" "}
+            Status effects has colors:
+            <mark className={clasess["sended"]}>you sended job</mark>
+            <mark className={clasess["opened"]}>you pending to answer</mark>
+            <mark className={clasess["offer"]}>you got offer</mark>
             <mark className={clasess["canceled"]}>you got rejection</mark>
           </li>
           <span>Main App:</span>
           <li>You can delete posted job by clicking bin</li>
           <li>
-            You can edit status by clicking on the rectangle and selecting a status. It automatly close and update after 2 seconds.
+            You can edit status by clicking on the rectangle and selecting a
+            status. It automatly close and update after 2 seconds.
           </li>
         </ul>
       </div>

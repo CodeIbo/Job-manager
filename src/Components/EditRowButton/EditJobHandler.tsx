@@ -1,4 +1,4 @@
-import EditableRowIcon from '../Style/Icons/EditableRowIcon';
+import EditableRowIcon from './EditableRowIcon';
 import { useDispatch } from 'react-redux/es/exports';
 import { editSetupID } from '../../State/Reducers/DataManager';
 

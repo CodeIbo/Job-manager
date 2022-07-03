@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import Data from "./Data/Data";
-import NavBar from "./NavBar/NavBar";
+import NavBar from "./Components/NavBar/NavBar";
 import "./index.module.scss";
-import HelpButton from "./CustomComponents/Style/Icons/Help";
+import HelperHandler from "./Components/HelperButton/HelperHandler";
 import { useDispatch } from 'react-redux';
 import { validationLocalData } from "./State/Reducers/DataManager";
-import PaginationFunction from "./Pagination/Pagination";
+import PaginationFunction from "./Components/Pagination/Pagination";
+import Wraper from "./CustomComponents/Containers/Wraper";
+import ShowPopupManager from "./CustomComponents/PopUpHandler";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -15,9 +17,12 @@ function App() {
   return (
     <>
       <NavBar />
-      <Data />
-      <PaginationFunction/>
-      <HelpButton/>
+      <Wraper>
+        <Data />
+        <PaginationFunction />
+      </Wraper>
+      <HelperHandler />
+      <ShowPopupManager/>
     </>
   );
 }

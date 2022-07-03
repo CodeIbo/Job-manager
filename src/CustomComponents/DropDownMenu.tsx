@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from "react";
 import classes from "../index.module.scss";
 
-const DropDownMenu = (props) => {
-  const [status, setStatus] = useState("");
-
-  const statusHandler = (e) => {
-    setStatus(e.target.value);
-  };
-  useEffect(() => {
-    props.onChange(status);
-  }, [status]);
+const DropDownMenu = ({onChange,initialValue}) => {
 
   return (
-    <select onChange={statusHandler} value={status} required>
+    <select onChange={onChange} value={initialValue} required>
       <option value="" disabled hidden>
         Choose here
       </option>

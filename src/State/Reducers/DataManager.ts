@@ -9,6 +9,10 @@ export interface OneJob {
     link: string;
 }
 
+interface formBoolean {
+    skillArray: boolean
+}
+
 interface initialState {
     localdata: OneJob[] | [];
     filtreddata: OneJob[] | [];
@@ -20,6 +24,7 @@ interface initialState {
     currentPage: number,
     currentPost: OneJob[],
     pageNumber: number,
+    validationForm: formBoolean
 }
 
 const initialState: initialState = {
@@ -28,7 +33,7 @@ const initialState: initialState = {
     filterInput: "",
     radioValue: "",
     editID: NaN,
-    //edition
+    //edition 
     editRow: {
         id: NaN,
         status: "",
@@ -42,7 +47,10 @@ const initialState: initialState = {
     currentPage: 1,
     currentPost: [],
     pageNumber: NaN,
-
+    //validation
+    validationForm: {
+        skillArray: true,
+    }
 };
 
 export const dataManager = createSlice({
@@ -58,7 +66,7 @@ export const dataManager = createSlice({
         clonnedSearchData: (state) => {
             return { ...state, filtreddata: state.localdata };
         },
-        inputFilterManager: (state, action) => {
+        inputFilterManager: (state, action: PayloadAction<string>) => {
             return { ...state, filterInput: action.payload.toLowerCase() };
         },
         PaginationLogic: (state) => {
@@ -74,10 +82,10 @@ export const dataManager = createSlice({
 
             return { ...state, currentPost: currentPost, pageNumber: pageNumber };
         },
-        PaginationSwitch: (state, action:PayloadAction<number>) => {
+        PaginationSwitch: (state, action: PayloadAction<number>) => {
             return { ...state, currentPage: action.payload };
         },
-        PaginationNumber: (state, action) => {
+        PaginationNumber: (state, action: PayloadAction<number>) => {
             return { ...state, postPerPage: action.payload }
         },
         searchData: (state) => {
@@ -92,13 +100,13 @@ export const dataManager = createSlice({
             );
             return { ...state, filtreddata: filtred, currentPage: 1 };
         },
-        radioSetup: (state, action) => {
+        radioSetup: (state, action: PayloadAction<string>) => {
             return { ...state, radioValue: action.payload };
         },
-        editSetupID: (state, action) => {
+        editSetupID: (state, action: PayloadAction<number>) => {
             return { ...state, editID: action.payload };
         },
-        editChanges: (state, action) => {
+        editChanges: (state, action: PayloadAction<OneJob>) => {
             return { ...state, editRow: action.payload };
         },
         editLogic: (state) => {
@@ -113,7 +121,7 @@ export const dataManager = createSlice({
         updateLocalStorage: (state) => {
             return localStorage.setItem("data", JSON.stringify(state.localdata));
         },
-        deleteLogic: (state, action) => {
+        deleteLogic: (state, action: PayloadAction<number>) => {
             const lc = state.localdata.filter(
                 (object: OneJob) => object.id !== action.payload
             );
@@ -124,9 +132,15 @@ export const dataManager = createSlice({
             state.localdata.unshift(action.payload);
             // @ts-ignore-end
         },
+        validArray: (state, action: PayloadAction<boolean>) => {
+            return {
+                ...state, validationForm: {
+                    ...state.validationForm, skillArray: action.payload
+                }
+            }
+        }
     },
 });
-
 export const {
     validationLocalData,
     clonnedSearchData,
@@ -142,6 +156,6 @@ export const {
     updateLocalStorage,
     deleteLogic,
     addLogic,
+    validArray
 } = dataManager.actions;
-
 export default dataManager.reducer;

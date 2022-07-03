@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import Counter from "../Counter/Counter";
-import PaginationFunction from "../Pagination/Pagination";
+import Counter from "../Components/Counter/Counter";
 import { RootState } from "../State/store";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -8,11 +7,12 @@ import {
   clonnedSearchData,
   PaginationLogic,
 } from "../State/Reducers/DataManager";
-import {  TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import {  TableBody, TableHead, TableRow } from "@mui/material";
 import EditMode from "./EditMode";
 import ViewOnlyMode from "./ViewOnlyMode";
 import FormEdit from "../CustomComponents/Forms/formEdit";
 import CustomT from "../CustomComponents/Style/MuiCustomComponents/CustomTable";
+import CustomTableCell from "../CustomComponents/Style/MuiCustomComponents/CustomTableCell";
 const Data = () => {
   const data = useSelector((state: RootState) => state.data);
   const dispatch = useDispatch();
@@ -28,18 +28,18 @@ const Data = () => {
 
 
   return (
-    <main>
+    <main style={{height:'500px'}}> 
       <Counter />
       <FormEdit>
-        <CustomT>
+        <CustomT >
           <TableHead>
             <TableRow>
-              <TableCell >Status</TableCell>
-              <TableCell >Company site</TableCell>
-              <TableCell >skills</TableCell>
-              <TableCell >links</TableCell>
-              <TableCell >Description</TableCell>
-              <TableCell style={{width:'10%'}}>Edit/Delete</TableCell>
+              <CustomTableCell >Status</CustomTableCell>
+              <CustomTableCell >Company site</CustomTableCell>
+              <CustomTableCell >Skills</CustomTableCell>
+              <CustomTableCell >Links</CustomTableCell>
+              <CustomTableCell >Description</CustomTableCell>
+              <CustomTableCell style={{width:'10%'}}>Edit/Delete</CustomTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
