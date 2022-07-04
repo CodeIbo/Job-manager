@@ -1,12 +1,14 @@
 import { TableRow } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import DropDownMenu from '../CustomComponents/DropDownMenu';
-import CustomTableCell from '../CustomComponents/Style/MuiCustomComponents/CustomTableCell';
-import { editChanges, editSetupID, OneJob, validArray } from '../State/Reducers/DataManager'
-import useArrayValid from '../Hooks/use-arrayValid';
-import { RootState } from '../State/store';
-import EditTextField from '../CustomComponents/Logic/EditInput';
+import DropDownMenu from '../../../CustomComponents/DropDownMenu';
+import CustomTableCell from '../../../CustomComponents/Style/MuiCustomComponents/CustomTableCell';
+import { editChanges, editSetupID, OneJob, validArray } from '../../../State/Reducers/DataManager'
+import useArrayValid from '../../../Hooks/use-arrayValid';
+import { RootState } from '../../../State/store';
+import EditTextField from '../../InputFormTextField/EditInput';
+import EditModeButton from './EditModeButtons';
+import ButtonWrapper from './ButtonWrapper';
 
 const EditMode: React.FC<{ object: OneJob }> = ({ object }) => {
   const validationArray = useSelector((state: RootState) => state.data.validationForm.skillArray)
@@ -63,10 +65,10 @@ const EditMode: React.FC<{ object: OneJob }> = ({ object }) => {
       dispatch(validArray(false))
     }
   }
-  const linkEdit = (e: React.ChangeEvent<HTMLInputElement>) =>{
+  const linkEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEdited((prevState) => ({ ...prevState, link: e.target.value }))
   }
-  const descriptionEdit = (e: React.ChangeEvent<HTMLInputElement>) =>{
+  const descriptionEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEdited((prevState) => ({
       ...prevState,
       customDescription: e.target.value,
@@ -82,23 +84,26 @@ const EditMode: React.FC<{ object: OneJob }> = ({ object }) => {
         <DropDownMenu onChange={onChange} initialValue={defaultValue} />
       </CustomTableCell>
       <CustomTableCell>
-        <EditTextField labelName='Company' onChange={companyEdit} value={edited.companySite} maxLenght={50} required={true} />
+        <EditTextField onChange={companyEdit} value={edited.companySite} maxLenght={50} required={true} color='black' />
       </CustomTableCell>
       <CustomTableCell>
-        <EditTextField labelName='Skills' onChange={skillEdit} value={edited.skills.join(",")} maxLenght={150} required={true} />
+        <EditTextField onChange={skillEdit} value={edited.skills.join(",")} maxLenght={150} required={true} color='black' />
       </CustomTableCell>
       <CustomTableCell>
-      <EditTextField labelName='Link' onChange={linkEdit} value={edited.link} maxLenght={500} required={true} />
+        <EditTextField onChange={linkEdit} value={edited.link} maxLenght={500} required={true} color='black' />
       </CustomTableCell>
       <CustomTableCell>
-      <EditTextField labelName='Description' onChange={descriptionEdit} value={edited.customDescription} maxLenght={200} required={false} />
-       
+        <EditTextField onChange={descriptionEdit} value={edited.customDescription} maxLenght={200} required={false} color='black' />
+
       </CustomTableCell>
       <CustomTableCell>
-        <button type="submit" disabled={!validationArray}>Save</button>
-        <button type="button" onClick={removeEditModeHandler}>
-          Cancel
-        </button>
+        <ButtonWrapper>
+          <EditModeButton type="submit" disabled={!validationArray}>Save</EditModeButton>
+
+          <EditModeButton type="button" onClick={removeEditModeHandler}>
+            Cancel
+          </EditModeButton>
+        </ButtonWrapper>
       </CustomTableCell>
     </TableRow>
   );

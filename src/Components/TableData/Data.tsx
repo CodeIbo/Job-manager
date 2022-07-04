@@ -1,18 +1,19 @@
 import { useEffect } from "react";
-import Counter from "../Components/Counter/Counter";
-import { RootState } from "../State/store";
+import Counter from "../Counter/Counter";
+import { RootState } from "../../State/store";
 import { useSelector, useDispatch } from "react-redux";
 import {
   updateLocalStorage,
   clonnedSearchData,
   PaginationLogic,
-} from "../State/Reducers/DataManager";
-import {  TableBody, TableHead, TableRow } from "@mui/material";
-import EditMode from "./EditMode";
-import ViewOnlyMode from "./ViewOnlyMode";
-import FormEdit from "../CustomComponents/Forms/formEdit";
-import CustomT from "../CustomComponents/Style/MuiCustomComponents/CustomTable";
-import CustomTableCell from "../CustomComponents/Style/MuiCustomComponents/CustomTableCell";
+} from "../../State/Reducers/DataManager";
+import { TableBody, TableHead, TableRow } from "@mui/material";
+import EditMode from "./EditMode/EditMode";
+import ViewOnlyMode from "./ViewMode/ViewOnlyMode";
+import FormEdit from "./EditMode/formEdit";
+import CustomT from "../../CustomComponents/Style/MuiCustomComponents/CustomTable";
+import CustomTableCell from "../../CustomComponents/Style/MuiCustomComponents/CustomTableCell";
+import TableWrapper from "./TableWrapper";
 const Data = () => {
   const data = useSelector((state: RootState) => state.data);
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const Data = () => {
 
 
   return (
-    <main style={{height:'500px'}}> 
+    <TableWrapper>
       <Counter />
       <FormEdit>
         <CustomT >
@@ -39,7 +40,7 @@ const Data = () => {
               <CustomTableCell >Skills</CustomTableCell>
               <CustomTableCell >Links</CustomTableCell>
               <CustomTableCell >Description</CustomTableCell>
-              <CustomTableCell style={{width:'10%'}}>Edit/Delete</CustomTableCell>
+              <CustomTableCell style={{ width: '10%' }}>Edit/Delete</CustomTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -53,7 +54,7 @@ const Data = () => {
           </TableBody>
         </CustomT>
       </FormEdit>
-    </main>
+    </TableWrapper>
   )
 };
 

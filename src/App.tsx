@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Data from "./Data/Data";
+import Data from "./Components/TableData/Data";
 import NavBar from "./Components/NavBar/NavBar";
 import "./index.module.scss";
 import HelperHandler from "./Components/HelperButton/HelperHandler";

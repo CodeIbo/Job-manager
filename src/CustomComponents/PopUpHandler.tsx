@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Helper from "../Helper/Helper";
-import Form from "./Forms/AddForm";
+import Form from "../Components/AddNewForm/AddForm";
 import { RootState } from "../State/store";
 
 const ShowPopupManager = () => {

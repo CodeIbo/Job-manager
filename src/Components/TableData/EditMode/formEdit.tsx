@@ -1,5 +1,5 @@
 import React from 'react'
-import { editLogic, editSetupID, inputFilterManager,validArray } from '../../State/Reducers/DataManager';
+import { editLogic, editSetupID, inputFilterManager,validArray } from '../../../State/Reducers/DataManager';
 import { useDispatch } from "react-redux";
 
 

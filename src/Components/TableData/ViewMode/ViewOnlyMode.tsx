@@ -1,9 +1,9 @@
 import React from 'react'
-import { OneJob } from '../State/Reducers/DataManager';
+import { OneJob } from '../../../State/Reducers/DataManager';
 import { TableRow } from '@mui/material';
-import EditorJobHandler from '../Components/EditRowButton/EditJobHandler';
-import DeleteJobHandler from '../Components/DeleteButton/DeleteJobHandler';
-import CustomTableCell from '../CustomComponents/Style/MuiCustomComponents/CustomTableCell';
+import EditorJobHandler from '../../EditRowButton/EditJobHandler';
+import DeleteJobHandler from '../../DeleteButton/DeleteJobHandler';
+import CustomTableCell from '../../../CustomComponents/Style/MuiCustomComponents/CustomTableCell';
 
 const ViewOnlyMode: React.FC<{ object: OneJob }> = ({ object }) => {
     return (
@@ -16,7 +16,7 @@ const ViewOnlyMode: React.FC<{ object: OneJob }> = ({ object }) => {
             </CustomTableCell>
             <CustomTableCell>{object.customDescription}</CustomTableCell>
             <CustomTableCell>
-                <EditorJobHandler id={object.id} />
+                <EditorJobHandler id={object.id} />           
                 <DeleteJobHandler id={object.id} />
             </CustomTableCell>
         </TableRow>

@@ -1,4 +1,4 @@
-import DeleteIcon from '@mui/icons-material/Delete';
+import Trash from './Trash';
 import { deleteLogic,updateLocalStorage } from '../../State/Reducers/DataManager';
 import { useDispatch } from 'react-redux/es/exports';
 const DeleteJobHandler:React.FC<{id:number}> = ({id}) => {
@@ -8,7 +8,7 @@ const DeleteJobHandler:React.FC<{id:number}> = ({id}) => {
         dispatch(updateLocalStorage())
     }
   return (
-    <DeleteIcon onClick={deleteHandler}/>
+    <Trash onClick={deleteHandler}/>
   )
 }
 

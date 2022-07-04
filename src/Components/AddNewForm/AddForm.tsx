@@ -1,16 +1,18 @@
 import { useState } from "react";
-import Background from "../../Components/BackgroundPopup/Background";
-import DropDownMenu from "../DropDownMenu";
-import CustomButtonSubmit from "../Style/MuiCustomComponents/CustomSubmitButton";
-import CloserPopup from "../../Components/CloserPopupX/CloserHandler";
+import Background from "../BackgroundPopup/Background";
+import DropDownMenu from "../../CustomComponents/DropDownMenu";
+import CustomButtonSubmit from "../../CustomComponents/Style/MuiCustomComponents/CustomSubmitButton";
+import CloserPopup from "../CloserPopupX/CloserHandler";
 import { useDispatch, useSelector } from "react-redux";
 import { popupSetup } from "../../State/Reducers/PopUpManager";
 import { OneJob } from "../../State/Reducers/DataManager";
 import { addLogic } from "../../State/Reducers/DataManager";
-import EditTextField from "../Logic/EditInput";
+import EditTextField from "../InputFormTextField/EditInput";
 import useArrayValid from "../../Hooks/use-arrayValid";
 import { validArray } from "../../State/Reducers/DataManager";
 import { RootState } from "../../State/store";
+import PopupWrapper from "../Popup/FormPopUp";
+import FormWrapper from "./FormWrapper";
 
 const Form = () => {
   const validationArray = useSelector((state: RootState) => state.data.validationForm.skillArray)
@@ -54,18 +56,20 @@ const Form = () => {
   }
   return (
     <Background>
-      <form onSubmit={addHandler} >
-        <CloserPopup />
-        <EditTextField labelName="Company name" onChange={companyAdd} value={addNew.companySite} required={true} maxLenght={50} />
-        <EditTextField labelName="skills" onChange={skillAdd} value={addNew.skills.join(',')} required={true} maxLenght={150} />
+      <FormWrapper onSubmit={addHandler} >
+        <PopupWrapper>
+          <CloserPopup />
+          <EditTextField labelName="Company name" onChange={companyAdd} value={addNew.companySite} required={true} maxLenght={50} color='white'/>
+          <EditTextField labelName="skills" onChange={skillAdd} value={addNew.skills.join(',')} required={true} maxLenght={150} color='white'/>
 
-        <EditTextField labelName='Link' onChange={linkAdd} value={addNew.link} maxLenght={500} required={true} />
-        <EditTextField labelName='Description' onChange={descriptionAdd} value={addNew.customDescription} maxLenght={200} required={false} />
-        <DropDownMenu onChange={setJobStatus} initialValue={addNew.status} />
-        <CustomButtonSubmit type="submit" variant="contained" disabled={!validationArray}>
-          Send
-        </CustomButtonSubmit>
-      </form>
+          <EditTextField labelName='Link' onChange={linkAdd} value={addNew.link} maxLenght={500} required={true} color='white'/>
+          <EditTextField labelName='Description' onChange={descriptionAdd} value={addNew.customDescription} maxLenght={200} required={false} color='white'/>
+          <DropDownMenu onChange={setJobStatus} initialValue={addNew.status} />
+          <CustomButtonSubmit type="submit" variant="contained" disabled={!validationArray}>
+            Send
+          </CustomButtonSubmit>
+        </PopupWrapper>
+      </FormWrapper>
     </Background>
   );
 };
