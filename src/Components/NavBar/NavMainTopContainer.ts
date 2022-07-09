@@ -1,10 +1,15 @@
 import styled from "@emotion/styled";
-
-const NavMainTopContainer = styled('nav')({
-    backgroundColor: '#5452ab',
+import { AppBar } from "@mui/material";
+const NavMainTopContainer: typeof AppBar= styled(AppBar)(() => ({
     display:'flex',
-    position:'fixed',
-    top: 0,
-    width: '100vw'
-});
+    width: "100%",
+    flexDirection:'row',
+    padding: '1em',
+    alignItems:'center',
+
+}));
+
 export default NavMainTopContainer
+
+
+

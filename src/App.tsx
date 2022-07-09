@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import Data from "./Components/TableData/Data";
 import NavBar from "./Components/NavBar/NavBar";
 import "./index.module.scss";
-import HelperHandler from "./Components/HelperButton/HelperHandler";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { validationLocalData } from "./State/Reducers/DataManager";
 import PaginationFunction from "./Components/Pagination/Pagination";
 import Wraper from "./CustomComponents/Containers/Wraper";
-import ShowPopupManager from "./CustomComponents/PopUpHandler";
+import ShowPopupManager from "./Components/PopUpManager/PopUpHandler";
+
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -21,11 +21,9 @@ function App() {
         <Data />
         <PaginationFunction />
       </Wraper>
-      <HelperHandler />
-      <ShowPopupManager/>
+      <ShowPopupManager />
     </>
   );
 }
-
 
 export default App;

@@ -1,11 +1,10 @@
 import styled from "@emotion/styled";
 
 const RightSiteNavContainer = styled('div')({
+    margin: ' 0 10% 0 auto',
     display: 'flex',
-    flexDirection:'column',
-    alignItems:'center',
-    padding: '0 0 5px 5px',
-    width: '50%',
+    alignItems: 'center',
+    gap: '1em'
 })
 
 export default RightSiteNavContainer

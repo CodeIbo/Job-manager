@@ -1,15 +1,11 @@
-import HelpIcon from "@mui/icons-material/Help";
-import { styled } from "@mui/material/styles";
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import { styled } from '@mui/system';
 
-const HelpButton = styled(HelpIcon)({
+const HelpButton = styled(HelpOutlineOutlinedIcon)(({theme}) => ({
   cursor: "pointer",
-  color: "#5452AB",
-  position: "fixed",
-  right: "0",
-  bottom: "0",
-  width: "3em",
-  height: "3em",
-  margin: "20px",
-});
+  color: theme.palette.mainBoldAccent.main,
+  fontSize: '3em'
+
+}))
 
 export default HelpButton;

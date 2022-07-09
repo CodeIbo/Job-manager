@@ -1,19 +1,11 @@
-import styled from "@emotion/styled";
-
-const AddNew = styled('button')({
-    all: 'unset',
-    backgroundColor:'#5452ab',
-    borderRight: '1px solid white',
+import { styled } from "@mui/system";
+import { ButtonBase } from "@mui/material";
+const AddNew = styled(ButtonBase)(({theme}) => ({
+    borderRadius: 23,
+    fontSize: 25,
+    padding: '0.2em 1.5em',
+    backgroundColor: theme.palette.interactiveColor.main,
     color: 'white',
-    cursor: 'pointer',
-    fontSize: '2rem',
-    transition: 'background-color, 0.7s ease-in-out ',
-    textAlign: 'center',
-    width: '50%',
-    ":hover":{
-        backgroundColor:'#242353',
-        transition: 'background color 0.7s ease-in-out'
-    }
-})
+}))
 
 export default AddNew
