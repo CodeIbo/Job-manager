@@ -2,7 +2,7 @@ import { TableRow } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import DropDownMenu from '../../../CustomComponents/DropDownMenu';
-import CustomTableCell from '../../../CustomComponents/Style/MuiCustomComponents/CustomTableCell';
+import {CustomTableCell} from '../../TableComponents/CustomTableCell';
 import { editChanges, editSetupID, OneJob, validArray } from '../../../State/Reducers/DataManager'
 import useArrayValid from '../../../Hooks/use-arrayValid';
 import { RootState } from '../../../State/store';

@@ -88,6 +88,9 @@ export const dataManager = createSlice({
         PaginationNumber: (state, action: PayloadAction<number>) => {
             return { ...state, postPerPage: action.payload }
         },
+        PaginationNumberPerPage: (state, action: PayloadAction<number>) => {
+            return { ...state, postPerPage: action.payload }
+        },
         searchData: (state) => {
             const filtred = state.localdata.filter((object: any) =>
                 state.radioValue === "skills"
@@ -147,6 +150,7 @@ export const {
     PaginationLogic,
     PaginationSwitch,
     PaginationNumber,
+    PaginationNumberPerPage,
     searchData,
     inputFilterManager,
     radioSetup,

@@ -3,11 +3,14 @@ import * as createPalette from "@mui/material/styles/createPalette";
 declare module '@mui/material/styles' {
     interface Palette {
         standardBox: Palette['primary'];
-        contentBox: PaletteOptions['primary'];
-        skillBox: PaletteOptions['primary'];
-        interactiveColor: PaletteOptions['primary'];
-        defaultIcon: PaletteOptions['primary'];
-        mainBoldAccent: PaletteOptions['primary'];
+        contentBox: Palette['primary'];
+        skillBox: Palette['primary'];
+        interactiveColor: Palette['primary'];
+        defaultIcon: Palette['primary'];
+        mainBoldAccent: Palette['primary'];
+        activeJob: Palette['primary'];
+        pendingJob:Palette['primary'];
+        rejectedJob:Palette['primary'];
     }
     interface PaletteOptions {
         standardBox?: PaletteOptions['primary'];
@@ -15,8 +18,12 @@ declare module '@mui/material/styles' {
         skillBox?: PaletteOptions['primary'];
         interactiveColor?: PaletteOptions['primary'];
         defaultIcon?: PaletteOptions['primary'];
-        mainBoldAccent: PaletteOptions['primary'];
+        mainBoldAccent?: PaletteOptions['primary'];
+        activeJob?: PaletteOptions['primary'];
+        pendingJob?:PaletteOptions['primary'];
+        rejectedJob?:PaletteOptions['primary'];
     }
+    
     interface PaletteColor {
         light?: string;
         main: string;
@@ -24,6 +31,8 @@ declare module '@mui/material/styles' {
         contrastText?: string;
     }
 }
+
+
 declare module "@mui/material" {
     interface AppBarPropsColorOverrides {
         standardBox;
@@ -33,6 +42,13 @@ declare module "@mui/material" {
         interactiveColor;
         mainBoldAccent;
     }
-
-
+    interface PaginationPropsColorOverrides {
+        mainBoldAccent;
+    }
+    interface TableCellPropsColorOverrides {
+        contentBox;
+    }
+    interface DefaultPaletteOptions extends PaletteOptions {
+        primary?: SimplePaletteColorOptions;
+      }
 }

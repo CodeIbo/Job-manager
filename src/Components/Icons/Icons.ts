@@ -9,7 +9,8 @@ import ApartmentOutlinedIcon from "@mui/icons-material/ApartmentOutlined";
 export const CommentIcon = styled(TextsmsOutlinedIcon)(() => ({
     transform: ' scaleX(-1)',
     width: '1.3em',
-    height: '1.3em'
+    height: '1.3em',
+    color: "",
 }));
 
 export const TagIcon = styled(LocalOfferOutlinedIcon)(() => ({

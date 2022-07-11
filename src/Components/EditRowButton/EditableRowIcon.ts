@@ -1,16 +1,15 @@
 import EditIcon from '@mui/icons-material/Edit';
 import { styled } from '@mui/system';
 
-const EditableRowIcon = styled(EditIcon)({
-    width: '1.3em',
-    height: '1.3em',
+const EditableRowIcon = styled(EditIcon)(({ theme }) => ({
+    width: '1.5em',
+    height: '1.5em',
     cursor: "pointer",
-    color: "#5452AB",
-    padding: '10px',
-    '&:hover':{
-        background:'whitesmoke',
-        transition:'background linear 0.5s'
+    color: theme.palette.mainBoldAccent.main,
+    '&:hover': {
+        background: 'whitesmoke',
+        transition: 'background linear 0.5s'
     }
-})
+}))
 
 export default EditableRowIcon

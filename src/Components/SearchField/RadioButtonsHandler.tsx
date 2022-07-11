@@ -4,8 +4,12 @@ import Radio from "@mui/material/Radio";
 import { radioSetup } from "../../State/Reducers/DataManager";
 import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import { CommentIcon, TagIcon, LinkIcon,CompanyNameIcon } from "./searchRadioIcons";
-
+import {
+  CommentIcon,
+  TagIcon,
+  LinkIcon,
+  CompanyNameIcon,
+} from "../Icons/Icons";
 
 const RadioButtonsHandler = () => {
   const [radio, setRadio] = useState("companySite");
@@ -20,45 +24,25 @@ const RadioButtonsHandler = () => {
       onChange={(e) => setRadio(e.target.value)}
       defaultValue="companySite"
     >
-      <FormControlLabel
+      <Radio
         value="companySite"
-        control={
-          <Radio
-            icon={<CompanyNameIcon color="defaultIcon" />}
-            checkedIcon={<CompanyNameIcon color="interactiveColor" />}
-          />
-        }
-        label=""
+        icon={<CompanyNameIcon color="defaultIcon" />}
+        checkedIcon={<CompanyNameIcon color="interactiveColor" />}
       />
-      <FormControlLabel
+      <Radio
         value="skills"
-        control={
-          <Radio
-            icon={<TagIcon color="defaultIcon" />}
-            checkedIcon={<TagIcon color="interactiveColor" />}
-          />
-        }
-        label=""
+        icon={<TagIcon color="defaultIcon" />}
+        checkedIcon={<TagIcon color="interactiveColor" />}
       />
-      <FormControlLabel
+      <Radio
         value="link"
-        control={
-          <Radio
-            icon={<LinkIcon color="defaultIcon" />}
-            checkedIcon={<LinkIcon color="interactiveColor" />}
-          />
-        }
-        label=""
+        icon={<LinkIcon color="defaultIcon" />}
+        checkedIcon={<LinkIcon color="interactiveColor" />}
       />
-      <FormControlLabel
+      <Radio
         value="customDescription"
-        control={
-          <Radio
-            icon={<CommentIcon color="defaultIcon" />}
-            checkedIcon={<CommentIcon color="interactiveColor" />}
-          />
-        }
-        label=""
+        icon={<CommentIcon color="defaultIcon" />}
+        checkedIcon={<CommentIcon color="interactiveColor" />}
       />
     </RadioGroup>
   );

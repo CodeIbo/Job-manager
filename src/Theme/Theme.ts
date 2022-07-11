@@ -17,17 +17,28 @@ const theme = createTheme({
         },
         interactiveColor: {
             main: "#6D92F0",
-            contrastText: "#FFFFF"
+            contrastText: "#ffffff"
         },
         defaultIcon: {
             main: "#666666"
         },
         mainBoldAccent: {
-            main: "#3E4254"
+            main: "#3E4254",
+            contrastText: "#ffffff"
+        },
+        activeJob: {
+            main: "#BBF38E"
+        },
+        pendingJob: {
+            main: "#FAD080"
+        },
+        rejectedJob: {
+            main: "#F38EA6"
         },
         background: {
             default: "#D1D4DE"
         },
+
     },
     typography: {
         fontFamily: [

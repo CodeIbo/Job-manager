@@ -7,7 +7,7 @@ import {
   inputFilterManager,
   searchData,
 } from "../../State/Reducers/DataManager";
-import { SearchFieldIcon } from "./searchRadioIcons";
+import { SearchFieldIcon } from "../Icons/Icons";
 
 const SearchHandler = () => {
   const input = useSelector((state: RootState) => state.data);
