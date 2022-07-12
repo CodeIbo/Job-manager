@@ -6,6 +6,7 @@ const NavMainTopContainer: typeof AppBar= styled(AppBar)(() => ({
     flexDirection:'row',
     padding: '1em',
     alignItems:'center',
+    zIndex:1
 
 }));
 

@@ -4,13 +4,13 @@ import CloseIcon from '@mui/icons-material/Close';
 
 const CustomCloseIcon = styled(CloseIcon)({
     cursor: "pointer",
-    color:'#FEF6F2',
     position: 'absolute',
-    width: '1.5em',
-    height: '1.5em',
-    top:'0',
+    width: '1.3em',
+    height: '1.3em',
+    fontSize: '1.3em',
+    top: '0',
     right: '0',
-    padding:'10px'
+    padding: '5px'
 
 })
 

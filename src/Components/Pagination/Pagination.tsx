@@ -25,6 +25,7 @@ const PaginationFunction = () => {
         variant="outlined"
         onChange={PaginationHandler}
         shape="rounded"
+        size="large"
       />
     </NavPaginationContainer>
   );

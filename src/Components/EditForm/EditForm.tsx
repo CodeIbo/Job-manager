@@ -1,17 +1,16 @@
-import { useEffect, useState } from "react";
+import { Box } from "@mui/system";
 import Background from "../BackgroundPopup/Background";
 import CloserPopup from "../CloserPopupX/CloserHandler";
-import { useDispatch, useSelector } from "react-redux";
-import { OneJob } from "../../State/Reducers/DataManager";
-import useArrayValid from "../../Hooks/use-arrayValid";
-import { RootState } from "../../State/store";
-import AddHandler from "./AddHandler";
-import useColorRecognize from "../../Hooks/use-recognizeColor";
-import { TabContext } from "@mui/lab";
-import { Box, FormControlLabel, Radio } from "@mui/material";
-import FormBoxButton from "../FormComponents/FormBoxButtons";
-import FormButton from "../FormComponents/FormButton";
-import CustomFormInpuLabel from "../FormComponents/FormInput/CustomFormInpuLabel";
+import HelpButton from "../HelperButton/Help";
+import TabContext from "@mui/lab/TabContext";
+import { FormControlLabel, Radio } from "@mui/material";
+import { useEffect, useState } from "react";
+import { LinkIcon } from "../Icons/Icons";
+import MainFormContainer from "../FormComponents/MainFormContainer";
+import TitleBox from "../FormComponents/TitleBox";
+import FormTabPanel from "../FormComponents/FormTabPanel";
+import FormTabList from "../FormComponents/FormTabList";
+import FormTab from "../FormComponents/FormTab";
 import {
   FormRadioGroup,
   FormSentRadioSX,
@@ -19,75 +18,109 @@ import {
   FormRejectRadioSX,
   FormActiveRadioSX,
 } from "../FormComponents/FormRadioComponents";
-import FormTab from "../FormComponents/FormTab";
-import FormTabList from "../FormComponents/FormTabList";
-import FormTabPanel from "../FormComponents/FormTabPanel";
-import MainFormContainer from "../FormComponents/MainFormContainer";
-import TitleBox from "../FormComponents/TitleBox";
-import HelpButton from "../HelperButton/Help";
-import { LinkIcon } from "../Icons/Icons";
+import FormButton from "../FormComponents/FormButton";
+import FormBoxButton from "../FormComponents/FormBoxButtons";
+import {
+  editChanges,
+  editSetupID,
+  OneJob,
+} from "../../State/Reducers/DataManager";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../State/store";
+import CustomFormInpuLabel from "../FormComponents/FormInput/CustomFormInpuLabel";
+import useColorRecognize from "../../Hooks/use-recognizeColor";
+import EditHandler from "./EditHandler";
 import { popupSetup } from "../../State/Reducers/PopUpManager";
 import {
   validTittle,
-  validLink,
   validArray,
+  validLink,
+  reset,
 } from "../../State/Reducers/ValidationForm";
-const Form = () => {
-  const validationArray = useSelector(
-    (state: RootState) => state.data.validationForm.skillArray
-  );
+const EditForm: React.FC<{ object?: OneJob }> = ({ object }) => {
+  const validForm = useSelector((state: RootState) => state.validForm);
+
   const dispatch = useDispatch();
-  const [addNew, setAddNew] = useState<OneJob>({
-    id: Date.now(),
-    status: "sended",
-    companySite: "",
-    skills: [],
-    link: "",
-    customDescription: "",
+  const [defaultValue, setDefaultValue] = useState(object.status);
+  const [edited, setEdited] = useState<OneJob>({
+    id: object.id,
+    status: object.status,
+    companySite: object.companySite,
+    skills: object.skills,
+    link: object.link,
+    customDescription: object.customDescription,
   });
   const [value, setValue] = useState("1");
-  const colorRecognize = useColorRecognize(addNew.status);
-  const validForm = useSelector((state:RootState) => state.validForm);
-
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
-  const setJobStatus = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAddNew({ ...addNew, status: e.target.value });
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDefaultValue(e.target.value);
   };
 
-  const companyAdd = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAddNew({ ...addNew, companySite: e.target.value });
-  };
-  const skillAdd = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let inputConvert = e.target.value.split(",");
-    setAddNew({ ...addNew, skills: inputConvert });
-  };
-  const linkAdd = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAddNew({ ...addNew, link: e.target.value });
-  };
-  const descriptionAdd = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAddNew({ ...addNew, customDescription: e.target.value });
-  };
-  const cancelHandler = () => {
+  useEffect(() => {
+    setEdited((prevState) => ({
+      ...prevState,
+      status: defaultValue,
+    }));
+  }, [defaultValue]);
+
+  const removeEditModeHandler = () => {
+    dispatch(editSetupID(NaN));
+    dispatch(
+      editChanges({
+        id: NaN,
+        status: "",
+        companySite: "",
+        skills: [],
+        link: "",
+        customDescription: "",
+      })
+    );
     dispatch(popupSetup(""));
+    dispatch(reset());
   };
+  const companyEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEdited((prevState) => ({
+      ...prevState,
+      companySite: e.target.value,
+    }));
+  };
+  const skillEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let inputConvert = e.target.value.split(",");
+
+    setEdited((prevState) => ({
+      ...prevState,
+      skills: inputConvert,
+    }));
+  };
+  const linkEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEdited((prevState) => ({ ...prevState, link: e.target.value }));
+  };
+  const descriptionEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEdited((prevState) => ({
+      ...prevState,
+      customDescription: e.target.value,
+    }));
+  };
+  const colorRecognize = useColorRecognize(defaultValue);
+
   useEffect(() => {
     const inputTimer = setTimeout(() => {
-      dispatch(validTittle({ type: "add", content: addNew.companySite }));
-      dispatch(validArray({ type: "add", content: addNew.skills }));
-      dispatch(validLink({ type: "add", content: addNew.link }));
-    }, 500);
+      dispatch(validTittle({ type: "edit", content: edited.companySite }));
+      dispatch(validArray({ type: "edit", content: edited.skills }));
+      dispatch(validLink({ type: "edit", content: edited.link }));
+    }, 200);
 
     return () => {
       clearTimeout(inputTimer);
     };
-  }, [addNew]);
+  }, [edited]);
 
   return (
     <Background>
       <MainFormContainer sx={{ borderColor: colorRecognize }}>
-        <AddHandler newJob={addNew}>
+        <EditHandler editedRow={edited}>
           <TitleBox>
             Edit existing job
             <HelpButton sx={{ fontSize: "2em" }} />
@@ -103,8 +136,8 @@ const Form = () => {
             <FormTabPanel value="1">
               <CustomFormInpuLabel
                 labelName="CompanyName"
-                onChange={companyAdd}
-                value={addNew.companySite}
+                onChange={companyEdit}
+                value={edited.companySite}
                 maxLenght={150}
                 required={true}
               />
@@ -118,8 +151,8 @@ const Form = () => {
               >
                 <CustomFormInpuLabel
                   labelName="Link"
-                  onChange={linkAdd}
-                  value={addNew.link}
+                  onChange={linkEdit}
+                  value={edited.link}
                   maxLenght={500}
                   required={true}
                 />
@@ -136,8 +169,8 @@ const Form = () => {
               <Box>
                 <CustomFormInpuLabel
                   labelName="Tags"
-                  onChange={skillAdd}
-                  value={addNew.skills.join(",")}
+                  onChange={skillEdit}
+                  value={edited.skills.join(",")}
                   maxLenght={150}
                   required={true}
                   rows={5}
@@ -149,18 +182,14 @@ const Form = () => {
               <Box>
                 <CustomFormInpuLabel
                   labelName="Comment"
-                  onChange={descriptionAdd}
-                  value={addNew.customDescription}
+                  onChange={descriptionEdit}
+                  value={edited.customDescription}
                   maxLenght={200}
                   required={false}
                   multiline={true}
                   rows={5}
                 />
-                <FormRadioGroup
-                  row
-                  onChange={setJobStatus}
-                  value={addNew.status}
-                >
+                <FormRadioGroup row onChange={onChange} value={defaultValue}>
                   <FormControlLabel
                     value="sended"
                     control={<Radio color="sentJob" sx={FormSentRadioSX} />}
@@ -198,7 +227,7 @@ const Form = () => {
               variant="text"
               color="interactiveColor"
               type="button"
-              onClick={cancelHandler}
+              onClick={removeEditModeHandler}
             >
               Cancel
             </FormButton>
@@ -206,15 +235,15 @@ const Form = () => {
               type="submit"
               variant="contained"
               color="interactiveColor"
-              disabled={Object.values(validForm.add).includes(false)}
+              disabled={Object.values(validForm.edit).includes(false)}
             >
               Done
             </FormButton>
           </FormBoxButton>
-        </AddHandler>
+        </EditHandler>
       </MainFormContainer>
     </Background>
   );
 };
 
-export default Form;
+export default EditForm;

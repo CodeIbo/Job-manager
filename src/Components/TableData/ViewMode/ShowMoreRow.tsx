@@ -2,25 +2,23 @@ import { TableRow } from "@mui/material";
 import {
   LeftFullTableCell,
   DescriptionFullTableCell,
-  SkillTabFullCell,
+  FulledTableCell,
   RightFullTableCell,
 } from "../../TableComponents/CustomTableCell";
 import { OneJob } from "../../../State/Reducers/DataManager";
 import SkillTag from "../../DataComponents/SkillTag";
+import { CustomSkillTableContainer } from "../../TableComponents/TableCellWrapper";
 const ShowMoreRow: React.FC<{ object: OneJob }> = ({ object }) => {
-  let restSkillArray = object.skills.slice(3).length;
   return (
     <TableRow>
-      <LeftFullTableCell />
-      <SkillTabFullCell
-        sx={{
-          display: restSkillArray > 0 ? "flex" : "table-cell",
-        }}
-      >
-        {object.skills.slice(3).map((skill) => (
-          <SkillTag>{skill}</SkillTag>
-        ))}
-      </SkillTabFullCell>
+      <LeftFullTableCell>{object.companySite}</LeftFullTableCell>
+      <FulledTableCell>
+        <CustomSkillTableContainer>
+          {object.skills.slice(3).map((skill) => (
+            <SkillTag>{skill}</SkillTag>
+          ))}
+        </CustomSkillTableContainer>
+      </FulledTableCell>
       <DescriptionFullTableCell>
         {object.customDescription}
       </DescriptionFullTableCell>

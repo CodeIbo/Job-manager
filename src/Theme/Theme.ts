@@ -35,6 +35,9 @@ const theme = createTheme({
         rejectedJob: {
             main: "#F38EA6"
         },
+        sentJob: {
+            main: "#8AC7F2"
+        },
         background: {
             default: "#D1D4DE"
         },
@@ -46,7 +49,16 @@ const theme = createTheme({
             'Averia Serif Libre'
         ].join(','),
     },
-
+    components: {
+        MuiInputBase: {
+            styleOverrides: {
+                input: {
+                    fontSize: "1.3em",
+                    fontFamily: "Averia Serif Libre"
+                }
+            }
+        }
+    }
 })
 
 export default theme;

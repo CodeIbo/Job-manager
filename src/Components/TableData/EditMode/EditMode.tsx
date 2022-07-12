@@ -74,7 +74,6 @@ const EditMode: React.FC<{ object: OneJob }> = ({ object }) => {
       customDescription: e.target.value,
     }))
   }
-
   useEffect(() => {
     dispatch(editChanges(edited))
   }, [edited]);

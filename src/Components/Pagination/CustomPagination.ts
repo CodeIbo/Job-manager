@@ -7,6 +7,7 @@ const CustomPagination = styled(Pagination)(({ theme }) => ({
     "& .MuiPaginationItem-root": {
       backgroundColor: theme.palette.mainBoldAccent.contrastText,
       color: theme.palette.mainBoldAccent.main,    
+      fontSize:"1.3em",
       '&:hover': {
         backgroundColor: "#a7b8ee",
         color: theme.palette.mainBoldAccent.contrastText,    

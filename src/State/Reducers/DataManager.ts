@@ -49,7 +49,7 @@ const initialState: initialState = {
     pageNumber: NaN,
     //validation
     validationForm: {
-        skillArray: true,
+        skillArray: false,
     }
 };
 
@@ -112,9 +112,9 @@ export const dataManager = createSlice({
         editChanges: (state, action: PayloadAction<OneJob>) => {
             return { ...state, editRow: action.payload };
         },
-        editLogic: (state) => {
+        editLogic: (state,action:PayloadAction<OneJob>) => {
             const updateStorage = state.localdata.map((object: OneJob) => {
-                return object.id === state.editID ? (object = state.editRow) : object;
+                return object.id === state.editID ? (object = action.payload) : object;
             });
             return {
                 ...state,
@@ -135,13 +135,6 @@ export const dataManager = createSlice({
             state.localdata.unshift(action.payload);
             // @ts-ignore-end
         },
-        validArray: (state, action: PayloadAction<boolean>) => {
-            return {
-                ...state, validationForm: {
-                    ...state.validationForm, skillArray: action.payload
-                }
-            }
-        }
     },
 });
 export const {
@@ -160,6 +153,5 @@ export const {
     updateLocalStorage,
     deleteLogic,
     addLogic,
-    validArray
 } = dataManager.actions;
 export default dataManager.reducer;

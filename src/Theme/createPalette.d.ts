@@ -9,8 +9,9 @@ declare module '@mui/material/styles' {
         defaultIcon: Palette['primary'];
         mainBoldAccent: Palette['primary'];
         activeJob: Palette['primary'];
-        pendingJob:Palette['primary'];
-        rejectedJob:Palette['primary'];
+        pendingJob: Palette['primary'];
+        rejectedJob: Palette['primary'];
+        sentJob: Palette["primary"];
     }
     interface PaletteOptions {
         standardBox?: PaletteOptions['primary'];
@@ -20,10 +21,10 @@ declare module '@mui/material/styles' {
         defaultIcon?: PaletteOptions['primary'];
         mainBoldAccent?: PaletteOptions['primary'];
         activeJob?: PaletteOptions['primary'];
-        pendingJob?:PaletteOptions['primary'];
-        rejectedJob?:PaletteOptions['primary'];
+        pendingJob?: PaletteOptions['primary'];
+        rejectedJob?: PaletteOptions['primary'];
+        sentJob?: PaletteOptions['primary'];
     }
-    
     interface PaletteColor {
         light?: string;
         main: string;
@@ -31,8 +32,6 @@ declare module '@mui/material/styles' {
         contrastText?: string;
     }
 }
-
-
 declare module "@mui/material" {
     interface AppBarPropsColorOverrides {
         standardBox;
@@ -50,5 +49,14 @@ declare module "@mui/material" {
     }
     interface DefaultPaletteOptions extends PaletteOptions {
         primary?: SimplePaletteColorOptions;
-      }
+    }
+    interface RadioPropsColorOverrides {
+        sentJob;
+        rejectedJob;
+        activeJob;
+        pendingJob;
+    }
+    interface ButtonPropsColorOverrides {
+        interactiveColor;
+    }
 }

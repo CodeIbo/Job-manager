@@ -6,7 +6,6 @@ const SkillTag = styled("span")(({theme}) => ({
     borderRadius:5,
     padding: "0.3em",
     fontSize: "1.2em",
-    margin: "0 0.2em",
     fontFamily: "Averia Serif Libre"
 }));
 export default SkillTag;

@@ -3,10 +3,12 @@ import { useSelector } from "react-redux";
 import Helper from "../../Helper/Helper";
 import Form from "../AddNewForm/AddForm";
 import { RootState } from "../../State/store";
+import EditForm from "../EditForm/EditForm";
+import {  } from "react-redux";
 
 const ShowPopupManager = () => {
   const popupHandler = useSelector((state: RootState) => state.popup.popup);
-
+  const data = useSelector((state: RootState) => state.data);
   useEffect(() => {
     if (popupHandler.length > 0) {
       document.body.style.overflow = "hidden";
@@ -15,13 +17,19 @@ const ShowPopupManager = () => {
     }
   });
 
-  let manager:JSX.Element;
+  let manager: JSX.Element;
 
   if (popupHandler === "helper") {
     manager = <Helper />;
   }
   if (popupHandler === "addNew") {
-    manager = <Form />
+    manager = <Form />;
+  }
+  if (popupHandler === "editJob") {
+    const validObject = data.currentPost.filter(
+      (object) => object.id === data.editID
+    );
+    manager = <EditForm object={validObject[0]} />;
   }
 
   console.log(popupHandler);
