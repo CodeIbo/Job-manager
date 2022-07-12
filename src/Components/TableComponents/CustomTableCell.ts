@@ -37,6 +37,7 @@ export const DescriptionTableCell = styled(RolledTableCell)(({ theme }) => ({
    textOverflow: "ellipsis",
    width: "80%",
    whiteSpace: "nowrap",
+   fontWeight: "bold"
 }));
 
 export const LeftFullTableCell = styled(FulledTableCell)(({ theme }) => ({
@@ -47,7 +48,7 @@ export const LeftFullTableCell = styled(FulledTableCell)(({ theme }) => ({
    fontSize: "2em",
    textAlign: "center"
 }));
-export const DescriptionFullTableCell = styled(FulledTableCell)(({ theme }) => ({ color: theme.palette.mainBoldAccent.main, textAlign: "start", }));
+export const DescriptionFullTableCell = styled(FulledTableCell)(({ theme }) => ({ color: theme.palette.mainBoldAccent.main, textAlign: "start", fontWeight: "bold" }));
 
 export const RightFullTableCell = styled(FulledTableCell)({
    borderRadius: "0 1em 1em 0",

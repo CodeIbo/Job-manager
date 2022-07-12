@@ -55,10 +55,20 @@ const theme = createTheme({
                 input: {
                     fontSize: "1.3em",
                     fontFamily: "Averia Serif Libre"
+                },
+            }
+        },
+        MuiCssBaseline: {
+            styleOverrides: {
+                body: {
+                    height: "90vh",
+                    paddingBottom:"10vh"
                 }
             }
-        }
+        },
+
     }
-})
+}
+)
 
 export default theme;

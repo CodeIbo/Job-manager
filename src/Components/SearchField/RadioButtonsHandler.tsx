@@ -1,5 +1,4 @@
 import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import { radioSetup } from "../../State/Reducers/DataManager";
 import { useDispatch } from "react-redux";

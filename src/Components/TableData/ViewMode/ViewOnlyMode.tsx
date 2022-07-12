@@ -30,7 +30,7 @@ const ViewOnlyMode: React.FC<{ object: OneJob }> = ({ object }) => {
   console.log(theme.palette.activeJob.main);
   const colorType = useColorRecognize(object.status)
   const sxBorder = {
-    borderTop: `5px solid ${colorType}`,
+    borderTop: `10px solid ${colorType}`,
   };
   return (
     <>

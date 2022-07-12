@@ -24,4 +24,5 @@ export const CustomSkillTableContainer = styled(Container)(() => ({
     flexWrap: "wrap",
     gap: "0.5em",
     padding: 0,
+    fontWeight:"bold"
 }))

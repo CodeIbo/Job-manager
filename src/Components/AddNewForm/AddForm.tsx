@@ -3,7 +3,6 @@ import Background from "../BackgroundPopup/Background";
 import CloserPopup from "../CloserPopupX/CloserHandler";
 import { useDispatch, useSelector } from "react-redux";
 import { OneJob } from "../../State/Reducers/DataManager";
-import useArrayValid from "../../Hooks/use-arrayValid";
 import { RootState } from "../../State/store";
 import AddHandler from "./AddHandler";
 import useColorRecognize from "../../Hooks/use-recognizeColor";
@@ -33,9 +32,7 @@ import {
   validArray,
 } from "../../State/Reducers/ValidationForm";
 const Form = () => {
-  const validationArray = useSelector(
-    (state: RootState) => state.data.validationForm.skillArray
-  );
+
   const dispatch = useDispatch();
   const [addNew, setAddNew] = useState<OneJob>({
     id: Date.now(),

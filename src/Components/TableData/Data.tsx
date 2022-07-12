@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Counter from "../Counter/Counter";
 import { RootState } from "../../State/store";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -8,9 +7,7 @@ import {
   PaginationLogic,
 } from "../../State/Reducers/DataManager";
 import { TableBody, TableHead, TableRow } from "@mui/material";
-import EditMode from "./EditMode/EditMode";
 import ViewOnlyMode from "./ViewMode/ViewOnlyMode";
-import FormEdit from "../EditForm/EditHandler";
 import CustomTable from "../TableComponents/CustomTable";
 import {
   CustomHeadTableCell,
@@ -37,7 +34,6 @@ const Data = () => {
 
   return (
     <TableWrapper>
-      <Counter />
       <CustomTable>
         <TableHead>
           <TableRow>

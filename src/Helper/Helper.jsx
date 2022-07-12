@@ -1,10 +1,9 @@
 import Background from "../Components/BackgroundPopup/Background";
-import clasess from "./Helper.module.scss";
 import CloserPopup from "../Components/CloserPopupX/CloserHandler";
 const Helper = () => {
   return (
     <Background>
-      <div className={clasess["helperPopup"]}>
+      <div >
         <CloserPopup />
         <h2>Helper</h2>
         <article>
@@ -12,7 +11,7 @@ const Helper = () => {
           use this app. This app is used to manage many job application from
           different site. It has some limitations and trick:
         </article>
-        <ul className={clasess["helperPopup__ulHelper"]}>
+        <ul >
           <span>Form:</span>
           <li>Inside form you can add whatever you want but!</li>
           <li>
@@ -20,12 +19,12 @@ const Helper = () => {
             separated by a comma
           </li>
           <li>Comment can be optional</li>
-          <li className={clasess["helperPopup__ulHelper--lineHeigh"]}>
+          <li >
             Status effects has colors:
-            <mark className={clasess["sended"]}>you sended job</mark>
-            <mark className={clasess["opened"]}>you pending to answer</mark>
-            <mark className={clasess["offer"]}>you got offer</mark>
-            <mark className={clasess["canceled"]}>you got rejection</mark>
+            <mark >you sended job</mark>
+            <mark >you pending to answer</mark>
+            <mark >you got offer</mark>
+            <mark >you got rejection</mark>
           </li>
           <span>Main App:</span>
           <li>You can delete posted job by clicking bin</li>
