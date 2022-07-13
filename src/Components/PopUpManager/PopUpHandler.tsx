@@ -4,7 +4,7 @@ import Helper from "../../Helper/Helper";
 import Form from "../AddNewForm/AddForm";
 import { RootState } from "../../State/store";
 import EditForm from "../EditForm/EditForm";
-import {  } from "react-redux";
+import { mainHelperData } from "../../Helper/mainHelperData";
 
 const ShowPopupManager = () => {
   const popupHandler = useSelector((state: RootState) => state.popup.popup);
@@ -20,7 +20,7 @@ const ShowPopupManager = () => {
   let manager: JSX.Element;
 
   if (popupHandler === "helper") {
-    manager = <Helper />;
+    manager = <Helper helperData={mainHelperData} />;
   }
   if (popupHandler === "addNew") {
     manager = <Form />;
@@ -32,7 +32,6 @@ const ShowPopupManager = () => {
     manager = <EditForm object={validObject[0]} />;
   }
 
-  console.log(popupHandler);
   return <div>{manager}</div>;
 };
 

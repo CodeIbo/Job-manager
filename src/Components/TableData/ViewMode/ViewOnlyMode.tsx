@@ -27,7 +27,6 @@ const ViewOnlyMode: React.FC<{ object: OneJob }> = ({ object }) => {
     setShowMore(!showMore);
   };
   let numberToShowMore = object.skills.slice(3, object.skills.length).length;
-  console.log(theme.palette.activeJob.main);
   const colorType = useColorRecognize(object.status);
   const sxBorder = {
     borderTop: `10px solid ${colorType}`,
@@ -46,8 +45,8 @@ const ViewOnlyMode: React.FC<{ object: OneJob }> = ({ object }) => {
         </LeftCustomTableCellContent>
         <RolledTableCell sx={sxBorder}>
           <CustomSkillTableContainer>
-            {object.skills.slice(0, 3).map((skill: string) => (
-              <SkillTag>{skill}</SkillTag>
+            {object.skills.slice(0, 3).map((skill: string, index:number) => (
+              <SkillTag key={index}>{skill}</SkillTag>
             ))}
             {numberToShowMore > 0 && <span> {numberToShowMore} more...</span>}
           </CustomSkillTableContainer>

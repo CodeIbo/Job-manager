@@ -14,8 +14,8 @@ const ShowMoreRow: React.FC<{ object: OneJob }> = ({ object }) => {
       <LeftFullTableCell>{object.companySite}</LeftFullTableCell>
       <FulledTableCell>
         <CustomSkillTableContainer>
-          {object.skills.slice(3).map((skill) => (
-            <SkillTag>{skill}</SkillTag>
+          {object.skills.slice(3).map((skill,index:number) => (
+            <SkillTag key={index}>{skill}</SkillTag>
           ))}
         </CustomSkillTableContainer>
       </FulledTableCell>

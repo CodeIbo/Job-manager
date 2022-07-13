@@ -63,7 +63,7 @@ const Data = () => {
         </TableHead>
         <TableBody>
           {data.currentPost.map((object) => (
-            <ViewOnlyMode object={object} />
+            <ViewOnlyMode object={object} key={object.id} />
           ))}
         </TableBody>
       </CustomTable>
