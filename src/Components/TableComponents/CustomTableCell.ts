@@ -25,7 +25,10 @@ export const LeftCustomTableCellContent = styled(LeftCustomTableCell)(({ theme }
    fontFamily: "Averia Serif Libre",
    fontWeight: "bold",
    color: theme.palette.mainBoldAccent.main,
-   fontSize: "2em"
+   fontSize: "2em",
+   [theme.breakpoints.down("md")]:{
+      fontSize: "1.5em"
+  } 
 }))
 export const RightCustomTableCell = styled(RolledTableCell)(() => ({
    borderRadius: "0 1em 1em 0",
@@ -37,7 +40,10 @@ export const DescriptionTableCell = styled(RolledTableCell)(({ theme }) => ({
    textOverflow: "ellipsis",
    width: "80%",
    whiteSpace: "nowrap",
-   fontWeight: "bold"
+   fontWeight: "bold",
+   [theme.breakpoints.down("md")]:{
+      fontSize: "1.0em"
+  } 
 }));
 
 export const LeftFullTableCell = styled(FulledTableCell)(({ theme }) => ({
@@ -46,7 +52,10 @@ export const LeftFullTableCell = styled(FulledTableCell)(({ theme }) => ({
    fontWeight: "bold",
    color: theme.palette.mainBoldAccent.main,
    fontSize: "2em",
-   textAlign: "center"
+   textAlign: "center",
+   [theme.breakpoints.down("md")]:{
+      fontSize: "1.5em"
+  } 
 }));
 export const DescriptionFullTableCell = styled(FulledTableCell)(({ theme }) => ({ color: theme.palette.mainBoldAccent.main, textAlign: "start", fontWeight: "bold" }));
 

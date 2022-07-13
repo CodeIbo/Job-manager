@@ -30,9 +30,9 @@ import {
   validTittle,
   validLink,
   validArray,
+  reset,
 } from "../../State/Reducers/ValidationForm";
 const Form = () => {
-
   const dispatch = useDispatch();
   const [addNew, setAddNew] = useState<OneJob>({
     id: Date.now(),
@@ -44,7 +44,7 @@ const Form = () => {
   });
   const [value, setValue] = useState("1");
   const colorRecognize = useColorRecognize(addNew.status);
-  const validForm = useSelector((state:RootState) => state.validForm);
+  const validForm = useSelector((state: RootState) => state.validForm);
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -68,25 +68,39 @@ const Form = () => {
   };
   const cancelHandler = () => {
     dispatch(popupSetup(""));
+    dispatch(reset());
   };
   useEffect(() => {
     const inputTimer = setTimeout(() => {
       dispatch(validTittle({ type: "add", content: addNew.companySite }));
-      dispatch(validArray({ type: "add", content: addNew.skills }));
-      dispatch(validLink({ type: "add", content: addNew.link }));
     }, 500);
-
     return () => {
       clearTimeout(inputTimer);
     };
-  }, [addNew]);
+  }, [addNew.companySite]);
+  useEffect(() => {
+    const inputTimer = setTimeout(() => {
+      dispatch(validArray({ type: "add", content: addNew.skills }));
+    }, 500);
+    return () => {
+      clearTimeout(inputTimer);
+    };
+  }, [addNew.skills]);
+  useEffect(() => {
+    const inputTimer = setTimeout(() => {
+      dispatch(validLink({ type: "add", content: addNew.link }));
+    }, 500);
+    return () => {
+      clearTimeout(inputTimer);
+    };
+  }, [addNew.link]);
 
   return (
     <Background>
       <MainFormContainer sx={{ borderColor: colorRecognize }}>
         <AddHandler newJob={addNew}>
           <TitleBox>
-            Edit existing job
+            Add new Job
             <HelpButton sx={{ fontSize: "2em" }} />
             <CloserPopup />
           </TitleBox>

@@ -37,6 +37,7 @@ import {
   validLink,
   reset,
 } from "../../State/Reducers/ValidationForm";
+import LinkWrapper from "../TableComponents/LinkWrapper";
 const EditForm: React.FC<{ object?: OneJob }> = ({ object }) => {
   const validForm = useSelector((state: RootState) => state.validForm);
 
@@ -105,17 +106,33 @@ const EditForm: React.FC<{ object?: OneJob }> = ({ object }) => {
   };
   const colorRecognize = useColorRecognize(defaultValue);
 
+  useEffect(() => {}, [edited]);
+
   useEffect(() => {
     const inputTimer = setTimeout(() => {
       dispatch(validTittle({ type: "edit", content: edited.companySite }));
-      dispatch(validArray({ type: "edit", content: edited.skills }));
-      dispatch(validLink({ type: "edit", content: edited.link }));
     }, 200);
 
     return () => {
       clearTimeout(inputTimer);
     };
-  }, [edited]);
+  }, [edited.companySite]);
+  useEffect(() => {
+    const inputTimer = setTimeout(() => {
+      dispatch(validArray({ type: "edit", content: edited.skills }));
+    }, 200);
+
+    return () => {
+      clearTimeout(inputTimer);
+    };
+  }, [edited.skills]);
+  useEffect(() => {
+    const inputTimer = setTimeout(() => {}, 200);
+    dispatch(validLink({ type: "edit", content: edited.link }));
+    return () => {
+      clearTimeout(inputTimer);
+    };
+  }, [edited.link]);
 
   return (
     <Background>
@@ -156,13 +173,19 @@ const EditForm: React.FC<{ object?: OneJob }> = ({ object }) => {
                   maxLenght={500}
                   required={true}
                 />
-                <LinkIcon
-                  sx={{
-                    width: "2em",
-                    height: "2em",
-                    transform: "translateY(40%)",
-                  }}
-                />
+                <LinkWrapper
+                  href={edited.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <LinkIcon
+                    sx={{
+                      width: "2em",
+                      height: "2em",
+                      transform: "translateY(40%)",
+                    }}
+                  />
+                </LinkWrapper>
               </Box>
             </FormTabPanel>
             <FormTabPanel value="2">

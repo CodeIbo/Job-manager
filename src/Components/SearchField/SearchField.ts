@@ -8,8 +8,10 @@ const SearchField = styled(TextField)({
         backgroundColor: 'transparent',
         fontSize: 20,
         fontWeight:'400'
-    }
+    },
+    
 
 })
 
-export default SearchField
+export default SearchField;
+

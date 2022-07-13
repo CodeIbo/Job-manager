@@ -28,7 +28,7 @@ const ViewOnlyMode: React.FC<{ object: OneJob }> = ({ object }) => {
   };
   let numberToShowMore = object.skills.slice(3, object.skills.length).length;
   console.log(theme.palette.activeJob.main);
-  const colorType = useColorRecognize(object.status)
+  const colorType = useColorRecognize(object.status);
   const sxBorder = {
     borderTop: `10px solid ${colorType}`,
   };
@@ -57,7 +57,11 @@ const ViewOnlyMode: React.FC<{ object: OneJob }> = ({ object }) => {
         </DescriptionTableCell>
         <RightCustomTableCell sx={sxBorder}>
           <CustomIconContainer>
-            <LinkWrapper href={`${object.link}`}>
+            <LinkWrapper
+              href={`${object.link}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <LinkIcon
                 color="mainBoldAccent"
                 sx={{ height: "1.5em", width: "1.5em" }}

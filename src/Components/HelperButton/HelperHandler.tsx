@@ -5,7 +5,7 @@ import { popupSetup } from "../../State/Reducers/PopUpManager";
 const HelperHandler = () => {
   const dispatch = useDispatch();
   //off because work in progress
-  return <HelpButton onClick={() => dispatch(popupSetup(""))} />;
+  return <HelpButton onClick={() => dispatch(popupSetup("helper"))} />;
 };
 
 export default HelperHandler;

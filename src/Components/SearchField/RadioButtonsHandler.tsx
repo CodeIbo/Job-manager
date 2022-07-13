@@ -9,7 +9,7 @@ import {
   LinkIcon,
   CompanyNameIcon,
 } from "../Icons/Icons";
-
+import RadioSearchGroup from "./RadioSearchGroup";
 const RadioButtonsHandler = () => {
   const [radio, setRadio] = useState("companySite");
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const RadioButtonsHandler = () => {
   }, [radio]);
 
   return (
-    <RadioGroup
+    <RadioSearchGroup
       row
       onChange={(e) => setRadio(e.target.value)}
       defaultValue="companySite"
@@ -34,16 +34,16 @@ const RadioButtonsHandler = () => {
         checkedIcon={<TagIcon color="interactiveColor" />}
       />
       <Radio
-        value="link"
-        icon={<LinkIcon color="defaultIcon" />}
-        checkedIcon={<LinkIcon color="interactiveColor" />}
-      />
-      <Radio
         value="customDescription"
         icon={<CommentIcon color="defaultIcon" />}
         checkedIcon={<CommentIcon color="interactiveColor" />}
       />
-    </RadioGroup>
+      <Radio
+        value="link"
+        icon={<LinkIcon color="defaultIcon" />}
+        checkedIcon={<LinkIcon color="interactiveColor" />}
+      />
+    </RadioSearchGroup>
   );
 };
 

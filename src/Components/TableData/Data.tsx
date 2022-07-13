@@ -46,7 +46,7 @@ const Data = () => {
               <CustomTableCellHeadContainer
                 sx={{ justifyContent: "flex-start" }}
               >
-                <TagIcon color="defaultIcon" /> Skills
+                <TagIcon color="defaultIcon" /> Tags
               </CustomTableCellHeadContainer>
             </CustomHeadTableCellCenter>
             <CustomHeadTableCellCenter>

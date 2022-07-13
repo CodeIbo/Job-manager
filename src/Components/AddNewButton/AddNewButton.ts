@@ -6,6 +6,10 @@ const AddNew = styled(ButtonBase)(({theme}) => ({
     padding: '0.2em 1.5em',
     backgroundColor: theme.palette.interactiveColor.main,
     color: 'white',
+    [theme.breakpoints.down("md")]:{
+        padding : " 0.1em 0.5em ",
+        fontSize: 23
+    } 
 }))
 
 export default AddNew

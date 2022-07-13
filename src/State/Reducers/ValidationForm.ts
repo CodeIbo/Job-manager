@@ -65,13 +65,11 @@ export const validationForm = createSlice({
                     }
                 }
             }
-
-
         },
         validArray: (state, action: PayloadAction<validObject>) => {
             let valid = action.payload.content.some((item: string) => item.trim().length === 0)
             if (action.payload.type === "add") {
-                if (valid) {
+                if (valid || action.payload.content.length === 0) {
                     return {
                         ...state, add: {
                             ...state.add, skillArray: false
@@ -135,7 +133,7 @@ export const validationForm = createSlice({
                 }
             }
         },
-        reset:() =>{
+        reset: () => {
             return initialState
         }
 

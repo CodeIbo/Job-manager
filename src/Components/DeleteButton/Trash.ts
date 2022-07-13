@@ -11,7 +11,11 @@ const Trash = styled(DeleteIcon)(({ theme }) => ({
   '&:hover': {
     background: 'whitesmoke',
     transition: 'background linear 0.5s'
-  }
+  },
+  [theme.breakpoints.down("md")]:{
+    width: '1.2em',
+    height: '1.2em',
+} 
 
 }));
 
