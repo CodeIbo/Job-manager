@@ -19,7 +19,6 @@ import LinkWrapper from "../../TableComponents/LinkWrapper";
 import CustomUnstyledButton from "../../CustomUnstyledButton/CustomUnstyledButtom";
 import { RollDownIcon, RollUpIcon } from "../../TableComponents/ShowMoreIcon";
 import ShowMoreRow from "./ShowMoreRow";
-import theme from "../../../Theme/Theme";
 import useColorRecognize from "../../../Hooks/use-recognizeColor";
 const ViewOnlyMode: React.FC<{ object: OneJob }> = ({ object }) => {
   const [showMore, setShowMore] = useState(false);
@@ -45,7 +44,7 @@ const ViewOnlyMode: React.FC<{ object: OneJob }> = ({ object }) => {
         </LeftCustomTableCellContent>
         <RolledTableCell sx={sxBorder}>
           <CustomSkillTableContainer>
-            {object.skills.slice(0, 3).map((skill: string, index:number) => (
+            {object.skills.slice(0, 3).map((skill: string, index: number) => (
               <SkillTag key={index}>{skill}</SkillTag>
             ))}
             {numberToShowMore > 0 && <span> {numberToShowMore} more...</span>}

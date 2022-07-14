@@ -1,6 +1,5 @@
 import theme from "../Theme/Theme";
 
-
 const useColorRecognize = (offerType: string) => {
     let color: string;
     if (offerType === "offer") {
@@ -17,5 +16,4 @@ const useColorRecognize = (offerType: string) => {
     }
     return color
 }
-
 export default useColorRecognize;

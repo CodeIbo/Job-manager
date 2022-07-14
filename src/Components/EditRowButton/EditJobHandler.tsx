@@ -12,6 +12,6 @@ const EditorJobHandler: React.FC<{ id: number }> = ({ id }) => {
   return (
     <EditableRowIcon onClick={editMode} />
   )
-}
+};
 
-export default EditorJobHandler
+export default EditorJobHandler;

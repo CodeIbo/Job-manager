@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { dummyDataStart } from "../DummyData";
 
 export interface OneJob {
     id: number;
@@ -7,10 +8,6 @@ export interface OneJob {
     skills: string[] | [];
     status: string;
     link: string;
-}
-
-interface formBoolean {
-    skillArray: boolean
 }
 
 interface initialState {
@@ -24,11 +21,17 @@ interface initialState {
     currentPage: number,
     currentPost: OneJob[],
     pageNumber: number,
-    validationForm: formBoolean
+}
+
+let localStorageData = JSON.parse(localStorage.getItem("data"));
+
+if (localStorageData === null || localStorageData.length === 0) {
+    localStorage.setItem("data", JSON.stringify([]));
+    localStorageData = dummyDataStart;
 }
 
 const initialState: initialState = {
-    localdata: JSON.parse(localStorage.getItem("data")),
+    localdata: localStorageData,
     filtreddata: [],
     filterInput: "",
     radioValue: "",
@@ -47,22 +50,12 @@ const initialState: initialState = {
     currentPage: 1,
     currentPost: [],
     pageNumber: NaN,
-    //validation
-    validationForm: {
-        skillArray: false,
-    }
 };
 
 export const dataManager = createSlice({
     name: "dataManager",
     initialState,
     reducers: {
-        validationLocalData: (state) => {
-            if (state.localdata.length === 0) {
-                localStorage.setItem("data", JSON.stringify([]));
-                return { ...state, localdata: [] };
-            }
-        },
         clonnedSearchData: (state) => {
             return { ...state, filtreddata: state.localdata };
         },
@@ -112,7 +105,7 @@ export const dataManager = createSlice({
         editChanges: (state, action: PayloadAction<OneJob>) => {
             return { ...state, editRow: action.payload };
         },
-        editLogic: (state,action:PayloadAction<OneJob>) => {
+        editLogic: (state, action: PayloadAction<OneJob>) => {
             const updateStorage = state.localdata.map((object: OneJob) => {
                 return object.id === state.editID ? (object = action.payload) : object;
             });
@@ -138,7 +131,6 @@ export const dataManager = createSlice({
     },
 });
 export const {
-    validationLocalData,
     clonnedSearchData,
     PaginationLogic,
     PaginationSwitch,

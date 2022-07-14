@@ -10,6 +10,5 @@ const DeleteJobHandler:React.FC<{id:number}> = ({id}) => {
   return (
     <Trash onClick={deleteHandler}/>
   )
-}
-
-export default DeleteJobHandler
+};
+export default DeleteJobHandler;

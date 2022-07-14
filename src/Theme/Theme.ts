@@ -62,7 +62,7 @@ const theme = createTheme({
             styleOverrides: {
                 body: {
                     height: "90vh",
-                    paddingBottom:"10vh"
+                    paddingBottom: "10vh"
                 }
             }
         },

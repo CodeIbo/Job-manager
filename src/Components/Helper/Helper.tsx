@@ -1,5 +1,5 @@
-import Background from "../Components/BackgroundPopup/Background";
-import CloserPopup from "../Components/CloserPopupX/CloserHandler";
+import Background from "../BackgroundPopup/Background";
+import CloserPopup from "../CloserPopupX/CloserHandler";
 import { useState } from "react";
 import BoxHelper from "./Components/BoxHelper";
 import NextButtonHelper from "./Components/NextButtonHelper";

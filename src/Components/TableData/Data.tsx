@@ -27,11 +27,9 @@ const Data = () => {
     dispatch(updateLocalStorage());
     dispatch(clonnedSearchData());
   }, [data.localdata]);
-
   useEffect(() => {
     dispatch(PaginationLogic());
   }, [data.localdata, data.filtreddata, data.postPerPage]);
-
   return (
     <TableWrapper>
       <CustomTable>

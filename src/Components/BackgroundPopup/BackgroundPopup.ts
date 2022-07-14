@@ -12,6 +12,6 @@ const BackgroundPopUp = styled('section')({
     alignContent:'center',
     zIndex: 5,
     width: '100%', 
-})
+});
 
-export default BackgroundPopUp
+export default BackgroundPopUp;

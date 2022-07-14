@@ -138,12 +138,11 @@ export const validationForm = createSlice({
         }
 
     }
-})
-
+});
 export const {
     validTittle,
     validArray,
     validLink,
     reset
 } = validationForm.actions;
-export default validationForm.reducer
+export default validationForm.reducer;

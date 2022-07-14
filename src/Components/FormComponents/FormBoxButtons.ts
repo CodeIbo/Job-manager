@@ -7,4 +7,4 @@ const FormBoxButton = styled(Box)({
     gap: "1em",
     margin: "1em",
 });
-export default FormBoxButton
+export default FormBoxButton;

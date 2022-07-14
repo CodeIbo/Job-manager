@@ -4,23 +4,25 @@ import SearchHandler from "../SearchField/SearchHandler";
 import RightSiteNavContainer from "./RightSiteNavContainer";
 import AddNewHandler from "../AddNewButton/AddNewHandler";
 import MenuIcon from "@mui/icons-material/Menu";
-import HelperHandler from "../HelperButton/HelperHandler";
+import HelperHandler from "../Helper/HelperButton/HelperHandler";
 import LeftSiteNavContainer from "./LeftSiteNavContainer";
 
 const navBar = () => (
   <NavMainTopContainer color="standardBox">
     <LeftSiteNavContainer>
-      <MenuIcon sx={{
-        width:'1.3em',
-        height:'1.3em',
-        marginRight:'0.5em'
-      }}/>
+      <MenuIcon
+        sx={{
+          width: "1.3em",
+          height: "1.3em",
+          marginRight: "0.5em",
+        }}
+      />
       <RadioButtonsHandler />
       <SearchHandler />
     </LeftSiteNavContainer>
     <RightSiteNavContainer>
       <AddNewHandler />
-      <HelperHandler />
+      <HelperHandler typeHelp="helper" />
     </RightSiteNavContainer>
   </NavMainTopContainer>
 );

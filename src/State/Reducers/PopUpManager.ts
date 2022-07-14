@@ -7,7 +7,6 @@ interface popupInit {
 const initialState: popupInit = {
     popup: "",
 };
-
 export const popupManager = createSlice({
     name: "popupManager",
     initialState,
@@ -17,7 +16,5 @@ export const popupManager = createSlice({
         },
     },
 });
-
 export const { popupSetup } = popupManager.actions;
-
 export default popupManager.reducer;

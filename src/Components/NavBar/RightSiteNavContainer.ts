@@ -7,11 +7,9 @@ const RightSiteNavContainer = styled('div')(({ theme }) => ({
     gap: '1em',
     [theme.breakpoints.down("lg")]: {
         margin: 0,
-        marginTop:"5%"
+        marginTop: "5%"
     }
-
-}))
-
+}));
 export default RightSiteNavContainer;
 
 

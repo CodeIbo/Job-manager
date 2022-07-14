@@ -1,7 +1,6 @@
 import { Box } from "@mui/system";
 import Background from "../BackgroundPopup/Background";
 import CloserPopup from "../CloserPopupX/CloserHandler";
-import HelpButton from "../HelperButton/Help";
 import TabContext from "@mui/lab/TabContext";
 import { FormControlLabel, Radio } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -38,6 +37,7 @@ import {
   reset,
 } from "../../State/Reducers/ValidationForm";
 import LinkWrapper from "../TableComponents/LinkWrapper";
+import HelperHandler from "../Helper/HelperButton/HelperHandler";
 const EditForm: React.FC<{ object?: OneJob }> = ({ object }) => {
   const validForm = useSelector((state: RootState) => state.validForm);
 
@@ -140,7 +140,7 @@ const EditForm: React.FC<{ object?: OneJob }> = ({ object }) => {
         <EditHandler editedRow={edited}>
           <TitleBox>
             Edit existing job
-            <HelpButton sx={{ fontSize: "2em" }} />
+            <HelperHandler typeHelp="helperEDIT" />
             <CloserPopup />
           </TitleBox>
           <hr />

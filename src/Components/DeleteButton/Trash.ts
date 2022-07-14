@@ -16,7 +16,6 @@ const Trash = styled(DeleteIcon)(({ theme }) => ({
     width: '1.2em',
     height: '1.2em',
 } 
-
 }));
 
 export default Trash

@@ -2,7 +2,7 @@ import { styled } from "@mui/system";
 import { Box } from "@mui/material";
 const BoxHelper = styled(Box)(({ theme }) => ({
     position: "relative",
-    width: "50%",
+    width: "50vw",
     backgroundColor: theme.palette.mainBoldAccent.main,
     borderRadius: "10px",
     color: "white",

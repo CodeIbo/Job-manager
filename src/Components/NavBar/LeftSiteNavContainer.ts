@@ -12,7 +12,6 @@ const LeftSiteNavContainer = styled('div')(({ theme }) => ({
         alignItems: "flex-start",
         gap: "0.2em"
     }
-
 }));
 export default LeftSiteNavContainer;
 

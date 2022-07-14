@@ -1,23 +1,21 @@
 import { styled } from "@mui/system";
 import { AppBar } from "@mui/material";
-const NavMainTopContainer: typeof AppBar= styled(AppBar)(({theme}) => ({
-    position:"sticky",
-    display:'flex',
+const NavMainTopContainer: typeof AppBar = styled(AppBar)(({ theme }) => ({
+    position: "sticky",
+    display: 'flex',
     width: "100%",
-    flexDirection:'row',
+    flexDirection: 'row',
     padding: '1em',
-    alignItems:'center',
-    zIndex:1,
+    alignItems: 'center',
+    zIndex: 1,
     [theme.breakpoints.down("lg")]: {
-        justifyContent:'space-between',
+        justifyContent: 'space-between',
     },
     [theme.breakpoints.down("sm")]: {
-        flexDirection:'column',
+        flexDirection: 'column',
     }
-
 }));
-
-export default NavMainTopContainer
+export default NavMainTopContainer;
 
 
 

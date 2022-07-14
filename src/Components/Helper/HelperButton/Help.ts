@@ -6,6 +6,5 @@ const HelpButton = styled(HelpOutlineOutlinedIcon)(({theme}) => ({
   color: theme.palette.mainBoldAccent.main,
   fontSize: '3em'
 
-}))
-
+}));
 export default HelpButton;

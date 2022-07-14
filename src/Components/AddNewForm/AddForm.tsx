@@ -11,6 +11,7 @@ import { Box, FormControlLabel, Radio } from "@mui/material";
 import FormBoxButton from "../FormComponents/FormBoxButtons";
 import FormButton from "../FormComponents/FormButton";
 import CustomFormInpuLabel from "../FormComponents/FormInput/CustomFormInpuLabel";
+import LinkWrapper from "../TableComponents/LinkWrapper";
 import {
   FormRadioGroup,
   FormSentRadioSX,
@@ -23,7 +24,6 @@ import FormTabList from "../FormComponents/FormTabList";
 import FormTabPanel from "../FormComponents/FormTabPanel";
 import MainFormContainer from "../FormComponents/MainFormContainer";
 import TitleBox from "../FormComponents/TitleBox";
-import HelpButton from "../HelperButton/Help";
 import { LinkIcon } from "../Icons/Icons";
 import { popupSetup } from "../../State/Reducers/PopUpManager";
 import {
@@ -32,6 +32,7 @@ import {
   validArray,
   reset,
 } from "../../State/Reducers/ValidationForm";
+import HelperHandler from "../Helper/HelperButton/HelperHandler";
 const Form = () => {
   const dispatch = useDispatch();
   const [addNew, setAddNew] = useState<OneJob>({
@@ -101,7 +102,7 @@ const Form = () => {
         <AddHandler newJob={addNew}>
           <TitleBox>
             Add new Job
-            <HelpButton sx={{ fontSize: "2em" }} />
+            <HelperHandler typeHelp="helperADD" />
             <CloserPopup />
           </TitleBox>
           <hr />
@@ -134,13 +135,19 @@ const Form = () => {
                   maxLenght={500}
                   required={true}
                 />
-                <LinkIcon
-                  sx={{
-                    width: "2em",
-                    height: "2em",
-                    transform: "translateY(40%)",
-                  }}
-                />
+                <LinkWrapper
+                  href={addNew.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <LinkIcon
+                    sx={{
+                      width: "2em",
+                      height: "2em",
+                      transform: "translateY(40%)",
+                    }}
+                  />
+                </LinkWrapper>
               </Box>
             </FormTabPanel>
             <FormTabPanel value="2">

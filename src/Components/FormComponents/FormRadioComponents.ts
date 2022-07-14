@@ -2,15 +2,14 @@ import { RadioGroup } from "@mui/material";
 import theme from "../../Theme/Theme";
 import { styled } from "@mui/system";
 
+const fontSize = 28;
+
 export const FormRadioGroup = styled(RadioGroup)({
     fontSize: "1.5em",
     fontFamily: "Averia Serif Libre",
     justifyContent: "flex-end",
     gap: "1em",
 });
-
-const fontSize = 28;
-
 export const FormSentRadioSX = {
     color: theme.palette.sentJob.main,
     "& .MuiSvgIcon-root": {

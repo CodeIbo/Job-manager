@@ -10,7 +10,6 @@ import NavPaginationContainer from "./NavPaginationContainer";
 const PaginationFunction = () => {
   const pagination = useSelector((state: RootState) => state.data);
   const dispatch = useDispatch();
-
   const PaginationHandler = (
     e: React.ChangeEvent<HTMLInputElement>,
     value: number
@@ -21,7 +20,7 @@ const PaginationFunction = () => {
   return (
     <NavPaginationContainer>
       <CustomPagination
-        count={pagination.pageNumber}
+        count={pagination.pageNumber === null ? 1 : pagination.pageNumber}
         variant="outlined"
         onChange={PaginationHandler}
         shape="rounded"

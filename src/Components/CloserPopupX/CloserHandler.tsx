@@ -4,8 +4,7 @@ import { popupSetup } from '../../State/Reducers/PopUpManager';
 const CloserPopup = () => {
     const dispatch = useDispatch();
     return (
-        <CustomCloseIcon onClick={() => dispatch(popupSetup(''))}/>
+        <CustomCloseIcon  onClick={() => dispatch(popupSetup(''))}/>
     )
-}
-
-export default CloserPopup
+};
+export default CloserPopup;

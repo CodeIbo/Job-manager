@@ -14,6 +14,6 @@ const EditableRowIcon = styled(EditIcon)(({ theme }) => ({
         width: '1.2em',
     height: '1.2em',
     } 
-}))
+}));
 
-export default EditableRowIcon
+export default EditableRowIcon;

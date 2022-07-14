@@ -12,7 +12,7 @@ import FormTabList from "./Components/FormComponents/FormTabList";
 import FormTabPanel from "./Components/FormComponents/FormTabPanel";
 import MainFormContainer from "./Components/FormComponents/MainFormContainer";
 import TitleBox from "./Components/FormComponents/TitleBox";
-import HelpButton from "./Components/HelperButton/Help";
+import HelpButton from "./Components/Helper/HelperButton/Help";
 import { LinkIcon } from "./Components/Icons/Icons";
 
 const EditForm = () => {
